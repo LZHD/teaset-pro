@@ -1,3 +1,11 @@
 .DS_Store
 node_modules/
 yarn.lock
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
