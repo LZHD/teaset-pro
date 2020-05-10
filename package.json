@@ -4,7 +4,9 @@
   "description": "A UI library for react native.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release:next": "npm publish --access public --tag next",
+    "release": "npm publish --access public"
   },
   "repository": {
     "type": "git",
