@@ -6,13 +6,20 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "build": "cd android && ./gradlew assembleRelease",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "connect": "adb reverse tcp:8081 tcp:8081",
+    "config": "adb shell input keyevent 82",
+    "watchman:clean": "watchman watch-del-all",
+    "yarn:clean": "rm -rf node_modules && yarn install",
+    "yarn:cleancache": "yarn start --reset-cache",
+    "clean:tmp": "rm -rf /tmp/metro-*"
   },
   "dependencies": {
     "react": "16.9.0",
     "react-native": "0.62.2",
-    "teaset": "latest"
+    "teaset": "../"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
