@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, Image, ScrollView, TouchableWithoutFeedback, Dimensions} from 'react-native';
 
-import {Theme, NavigationPage, ListRow, Overlay, Label, Button, Checkbox} from 'teaset';
+import {Theme, NavigationPage, ListRow, Overlay, Label, Button, Checkbox, Toast, Alert } from 'teaset';
 
 export default class OverlayExample extends NavigationPage {
 
@@ -162,6 +162,21 @@ export default class OverlayExample extends NavigationPage {
           detail={<Image style={{width: 40, height: 40}} source={img} resizeMode='cover' ref={v => this.imgView = v} />}
           onPress={() => this.showPopCustom(img, this.imgView)}
           bottomSeparator='full' />
+          <ListRow
+              title="alert"
+              onPress={() => {
+                  Alert.alert(
+                      {
+                          title: '确定',
+                          onPress: () => Toast.message('alert'),
+                      },
+                      {
+                          title: '确定',
+                          onPress: () => Toast.message('alert'),
+                      },
+                  );
+              }}
+          />
         <View style={{height: 20}} />
         <ListRow
           title='Popover'
