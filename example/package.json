@@ -12,23 +12,14 @@
     "connect": "adb reverse tcp:8081 tcp:8081",
     "config": "adb shell input keyevent 82",
     "watchman:clean": "watchman watch-del-all",
-<<<<<<< HEAD
-    "yarn:clean": "rm -rf node_modules && yarn install",
-    "yarn:cleancache": "yarn start --reset-cache",
-=======
     "clean": "rm -rf node_modules && yarn install",
     "cleancache": "yarn start --reset-cache",
->>>>>>> origin/dev
     "clean:tmp": "rm -rf /tmp/metro-*"
   },
   "dependencies": {
     "react": "16.11.0",
     "react-native": "0.62.2",
-<<<<<<< HEAD
-    "teaset": "../"
-=======
     "teaset-pro": "link:../"
->>>>>>> origin/dev
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
