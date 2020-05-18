@@ -40,6 +40,7 @@ import BasePage from './components/BasePage/BasePage';
 import NavigationPage from './components/NavigationPage/NavigationPage';
 
 import KeyboardSpace from './components/KeyboardSpace/KeyboardSpace';
+import Alert from './components/Alert/Alert';
 
 var Teaset = {
   Theme,
@@ -81,6 +82,7 @@ var Teaset = {
   NavigationPage,
 
   KeyboardSpace,
+  Alert
 };
 
 module.exports = Teaset;

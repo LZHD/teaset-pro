@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Overlay from "../Overlay/Overlay";
 import Theme from 'teaset/themes/Theme';
 import Button from "../Button/Button";
@@ -84,7 +84,6 @@ export default class AlertView extends Overlay.PopView {
     }
 
     renderContent(content = null) {
-        const { title, content } = this.props;
         return super.renderContent(
             <View style={{backgroundColor: Theme.defaultColor, minWidth: 260, minHeight: 180, borderRadius: 10, justifyContent: 'center', alignItems: 'center'}}>
                 {this.renderTitle()}
@@ -105,7 +104,7 @@ const styles = StyleSheet.create({
     },
     btnContainer: {
         flexDirection: 'column',
-        justifyContent: 'between',
+        justifyContent: 'space-between',
         alignItems: 'center',
     }
 });
