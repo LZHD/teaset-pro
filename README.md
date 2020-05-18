@@ -5,7 +5,7 @@ A UI library for react native, provides 20+ pure JS(ES6) components, focusing on
 
 # Installation
 ```
-npm install --save teaset
+npm install --save teaset-pro
 ```
 
 # Example
