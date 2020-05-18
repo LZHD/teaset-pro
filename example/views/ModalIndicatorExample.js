@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, ScrollView} from 'react-native';
 
-import {NavigationPage, ListRow, ModalIndicator} from 'teaset';
+import {NavigationPage, ListRow, ModalIndicator} from 'teaset-pro';
 
 export default class ModalIndicatorExample extends NavigationPage {
 

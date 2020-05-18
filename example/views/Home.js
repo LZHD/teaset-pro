@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, ScrollView} from 'react-native';
 
-import {Theme, NavigationPage, NavigationBar, ListRow} from 'teaset';
+import {Theme, NavigationPage, NavigationBar, ListRow} from 'teaset-pro';
 import ThemeExample from './ThemeExample';
 import LabelExample from './LabelExample';
 import ButtonExample from './ButtonExample';

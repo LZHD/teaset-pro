@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, View, ScrollView} from 'react-native';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from '../../themes/Theme';
 import CarouselControl from './CarouselControl';
 
 export default class Carousel extends Component {
@@ -143,7 +143,7 @@ export default class Carousel extends Component {
     if (this.refs.scrollView) {
       if (this.props.horizontal)
         this.refs.scrollView.scrollTo({x: width * cardIndex, y: 0, animated: animated});
-      else this.refs.scrollView.scrollTo({x: 0, y: height * cardIndex, animated: animated});      
+      else this.refs.scrollView.scrollTo({x: 0, y: height * cardIndex, animated: animated});
     }
   }
 

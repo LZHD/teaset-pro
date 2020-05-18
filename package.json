@@ -1,6 +1,6 @@
 {
   "name": "teaset-pro",
-  "version": "0.7.41",
+  "version": "0.7.42",
   "description": "A UI library for react native.",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,10 @@
     "url": "https://github.com/lzhd/teaset-pro/issues"
   },
   "homepage": "https://github.com/lzhd/teaset-pro#readme",
+  "peerDependencies": {
+    "react": ">=16.11.0",
+    "react-native": ">=0.62.0"
+  },
   "dependencies": {
     "prop-types": "^15.7.2",
     "react-native-legacy-components": "^0.1.3"

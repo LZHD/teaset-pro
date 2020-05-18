@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, View, Text, TextInput, Image, LayoutAnimation, ViewPropTypes} from 'react-native';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from '../../themes/Theme';
 
 export default class SearchInput extends Component {
 
@@ -22,7 +22,7 @@ export default class SearchInput extends Component {
     ...TextInput.defaultProps,
     disabled: false,
     underlineColorAndroid: 'rgba(0, 0, 0, 0)',
-  };  
+  };
 
   constructor(props) {
     super(props);

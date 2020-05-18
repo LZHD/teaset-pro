@@ -41,4 +41,4 @@ None.
 ```
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/01-Label.png?raw=true)
+![](../../screenshots/01-Label.png)

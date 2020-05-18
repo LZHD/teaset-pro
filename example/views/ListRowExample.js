@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, ScrollView, Image, Text} from 'react-native';
 
-import {NavigationPage, ListRow, Label} from 'teaset';
+import {NavigationPage, ListRow, Label} from 'teaset-pro';
 
 export default class ListRowExample extends NavigationPage {
 
@@ -43,7 +43,7 @@ export default class ListRowExample extends NavigationPage {
           detail='Swipe to show action buttons'
           swipeActions={[
             <ListRow.SwipeActionButton title='Cancel' />,
-            <ListRow.SwipeActionButton title='Remove' type='danger' onPress={() => alert('Remove')}/>,          
+            <ListRow.SwipeActionButton title='Remove' type='danger' onPress={() => alert('Remove')}/>,
           ]}
           bottomSeparator='full'
           />

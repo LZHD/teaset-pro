@@ -43,7 +43,7 @@ export default class TouchableOpacity extends Component {
     }
   }
 
-  componentWillUnmount(): void {
+  componentWillUnmount() {
     this.state.pressability && this.state.pressability.reset();
   }
 

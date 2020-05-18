@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {View, Text, ViewPropTypes} from 'react-native';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from '../../themes/Theme';
 
 export default class Badge extends Component {
 
@@ -45,7 +45,7 @@ export default class Badge extends Component {
         break;
       case 'dot':
         width = Theme.badgeDotSize;
-        height = Theme.badgeDotSize;        
+        height = Theme.badgeDotSize;
         borderRadius = Theme.badgeDotSize / 2;
         borderWidth = 0;
         padding = 0;

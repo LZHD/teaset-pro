@@ -6,11 +6,11 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {View, Text, Image, TouchableOpacity, ViewPropTypes} from 'react-native';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from '../../themes/Theme';
 import Badge from '../Badge/Badge';
 
 export default class TabButton extends Component {
-  
+
   static propTypes = {
     ...TouchableOpacity.propTypes,
     title: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.number]),
@@ -50,7 +50,7 @@ export default class TabButton extends Component {
         height: Theme.tvBarBtnIconSize,
         tintColor: active ? Theme.tvBarBtnIconActiveTintColor : Theme.tvBarBtnIconTintColor,
       };
-      icon = <Image style={iconStyle} source={icon} />;      
+      icon = <Image style={iconStyle} source={icon} />;
     }
 
     iconContainerStyle = [{

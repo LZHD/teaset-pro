@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, ScrollView, Text} from 'react-native';
 
-import {NavigationPage, ListRow, Badge} from 'teaset';
+import {NavigationPage, ListRow, Badge} from 'teaset-pro';
 
 export default class BadgeExample extends NavigationPage {
 

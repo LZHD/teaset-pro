@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
 
-import {NavigationPage, Menu, Button, Theme} from 'teaset';
+import {NavigationPage, Menu, Button, Theme} from 'teaset-pro';
 
 export default class MenuExample extends NavigationPage {
 

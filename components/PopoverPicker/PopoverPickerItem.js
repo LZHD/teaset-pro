@@ -6,7 +6,7 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from '../../themes/Theme';
 
 export default class PopoverPickerItem extends Component {
 
@@ -23,7 +23,7 @@ export default class PopoverPickerItem extends Component {
       paddingLeft: Theme.poppItemPaddingLeft,
       paddingRight: Theme.poppItemPaddingRight,
       paddingTop: Theme.poppItemPaddingTop,
-      paddingBottom: Theme.poppItemPaddingBottom,      
+      paddingBottom: Theme.poppItemPaddingBottom,
       borderColor: Theme.poppItemSeparatorColor,
       borderBottomWidth: Theme.poppItemSeparatorWidth,
       flexDirection: 'row',

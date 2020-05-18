@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, Image, TouchableOpacity, StatusBar} from 'react-native';
 
-import {Theme, NavigationPage, AlbumView, Overlay, Button} from 'teaset';
+import {Theme, NavigationPage, AlbumView, Overlay, Button} from 'teaset-pro';
 
 export default class AlbumViewExample extends NavigationPage {
 
@@ -83,7 +83,7 @@ export default class AlbumViewExample extends NavigationPage {
       {uri: 'http://img.warting.com/allimg/2017/0308/exsaicsvc5w-92.jpg'},
       {uri: 'http://img.warting.com/allimg/2017/0308/o4ovnsq2uqj-96.jpg'},
 
-import AlbumSheet from 'teaset/components/AlbumView/AlbumSheet';
+import AlbumSheet from 'teaset-pro/components/AlbumView/AlbumSheet';
 
         <View style={{flexDirection:'row', flex: 1}}>
           <View style={{width: 100}} />

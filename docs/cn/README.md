@@ -10,14 +10,14 @@ Teaset 组件采用 React Native 原生组件同样的风格来编写, 可以与
 利用 Teaset, 你可以快速搭建 App 页面框架, 丰富的 UI 组件大大改善页面开发效率, 强大的 Overlay 浮层类把你从繁琐的交互控制中解放出来, 使得你可以专注于业务与逻辑。
 
 
-![](https://github.com/rilyu/teaset/blob/master/screenshots/00-Teaset1.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/00-Teaset2.png?raw=true)
+![](../../screenshots/00-Teaset1.png) ![](../../screenshots/00-Teaset2.png)
 
 # 快速上手
 
 ## 安装
 在你的 React Native App 工程根目录下执行以下命令进行安装:
 ```
-npm install --save teaset
+npm install --save teaset-pro
 ```
 
 ## Hello world
@@ -26,7 +26,7 @@ npm install --save teaset
 import React, {Component} from 'react';
 import {View, AppRegistry} from 'react-native';
 
-import {Label} from 'teaset';
+import {Label} from 'teaset-pro';
 
 class HelloWorldApp extends Component {
   render() {
@@ -43,14 +43,14 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ## 按需加载
 使用单独 import 组件实现按需加载
 ```
-import Label from 'teaset/components/Label/Label';
+import Label from 'teaset-pro/components/Label/Label';
 ```
 
 ## 运行示例程序
 从 github clone teaset 工程(或者下载 zip 文件):
 ```
-git clone https://github.com/rilyu/teaset.git
-cd teaset/example
+git clone https://github.com/lzhd/teaset-pro.git
+cd teaset-pro/example
 npm install
 ```
 在 iOS 下运行:
@@ -75,7 +75,7 @@ react-native run-android
 如果你使用了 Redux ，需要使用 ```<TopView>``` 包裹 container ，用于给 Overlay 类型的组件提供容器(感谢 [@Alexorz](https://github.com/Alexorz) 的贡献)。
 
 ```
-import { TopView } from 'teaset';
+import { TopView } from 'teaset-pro';
 
 container => () => <Provider store={store}><TopView>{container}</TopView></Provider>
 ```

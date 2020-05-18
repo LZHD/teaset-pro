@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, ScrollView, ActivityIndicator} from 'react-native';
 
-import {Theme, NavigationPage, ListRow, PullPicker} from 'teaset';
+import {Theme, NavigationPage, ListRow, PullPicker} from 'teaset-pro';
 
 export default class ThemeExample extends NavigationPage {
 

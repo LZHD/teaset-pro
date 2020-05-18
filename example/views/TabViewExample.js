@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, ScrollView, Image, Switch, Platform} from 'react-native';
 
-import {Theme, TeaNavigator, NavigationPage, BasePage, ListRow, TabView, Label, PullPicker} from 'teaset';
+import {Theme, TeaNavigator, NavigationPage, BasePage, ListRow, TabView, Label, PullPicker} from 'teaset-pro';
 
 import SelectRow from './SelectRow';
 

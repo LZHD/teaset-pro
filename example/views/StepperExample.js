@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, ScrollView, Text} from 'react-native';
 
-import {NavigationPage, ListRow, Stepper} from 'teaset';
+import {NavigationPage, ListRow, Stepper} from 'teaset-pro';
 
 export default class StepperExample extends NavigationPage {
 

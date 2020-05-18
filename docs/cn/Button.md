@@ -48,4 +48,4 @@ None.
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/02-Button.png?raw=true)
+![](../../screenshots/02-Button.png)

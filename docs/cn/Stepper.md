@@ -81,4 +81,4 @@ None.
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/05a-Stepper.png?raw=true)
+![](../../screenshots/05a-Stepper.png)

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import {StyleSheet, View, Image, Animated, Easing} from 'react-native';
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from '../../themes/Theme';
 import TransformView from '../TransformView/TransformView';
 
 export default class AlbumSheet extends TransformView {
@@ -143,7 +143,7 @@ export default class AlbumSheet extends TransformView {
     let {space} = this.props;
     let {fitWidth, viewWidth, scale} = this.state;
     let scaleWidth = fitWidth * scale._value; //image scale width
-    let exceedWidth = scaleWidth > viewWidth ? scaleWidth - viewWidth : 0; 
+    let exceedWidth = scaleWidth > viewWidth ? scaleWidth - viewWidth : 0;
     let leftX = -(viewWidth + space + exceedWidth / 2); //scroll to left position
     let rightX = viewWidth + space + exceedWidth / 2; //scroll to right position
     let centerLeftX = -exceedWidth / 2; //scroll from left to center position
@@ -196,7 +196,7 @@ export default class AlbumSheet extends TransformView {
             easing: Easing.elastic(0),
             duration: 200,
             useNativeDriver: false,
-          }),          
+          }),
         ]).start();
       } else {
         translateX.setValue(valueX);
