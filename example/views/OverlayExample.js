@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, Image, ScrollView, TouchableWithoutFeedback, Dimensions} from 'react-native';
 
-import {Theme, NavigationPage, ListRow, Overlay, Label, Button, Checkbox} from 'teaset';
+import {Theme, NavigationPage, ListRow, Overlay, Label, Button, Checkbox } from 'teaset-pro';
 
 export default class OverlayExample extends NavigationPage {
 

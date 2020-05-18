@@ -94,5 +94,5 @@ this.customItems = [
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/05-Select1.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/05-Select2.png?raw=true)
-![](https://github.com/rilyu/teaset/blob/master/screenshots/05-Select3.png?raw=true)
+![](../../screenshots/05-Select1.png) ![](../../screenshots/05-Select2.png)
+![](../../screenshots/05-Select3.png)

@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, PanResponder, Image, TouchableOpacity, Animated} from 'react-native';
 
-import {NavigationPage, Input} from 'teaset';
+import {NavigationPage, Input} from 'teaset-pro';
 
 export default class PanResponderExample extends NavigationPage {
 
@@ -184,7 +184,7 @@ var styles = StyleSheet.create({
     top: 100,
     left: 100,
     right: 100,
-    bottom: 100,    
+    bottom: 100,
   },
 });
 

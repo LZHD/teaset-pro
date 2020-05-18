@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, Image} from 'react-native';
 
-import {Theme, NavigationPage, TransformView} from 'teaset';
+import {Theme, NavigationPage, TransformView} from 'teaset-pro';
 
 export default class TransformViewExample extends NavigationPage {
 

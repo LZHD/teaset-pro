@@ -25,7 +25,7 @@ NavigationPage 定义一个导航页面组件, 继承自 [BasePage](./BasePage.m
 import React from 'react';
 import {View} from 'react-native';
 
-import {NavigationPage, Label} from 'teaset';
+import {NavigationPage, Label} from 'teaset-pro';
 
 class MePage extends NavigationPage {
 

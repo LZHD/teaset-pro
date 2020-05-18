@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, Image, ScrollView, Dimensions} from 'react-native';
 
-import {NavigationPage, ListRow, Carousel, PullPicker} from 'teaset';
+import {NavigationPage, ListRow, Carousel, PullPicker} from 'teaset-pro';
 
 export default class CarouselExample extends NavigationPage {
 

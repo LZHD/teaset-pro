@@ -6,10 +6,10 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from '../../themes/Theme';
 
 export default class Button extends Component {
-  
+
   static propTypes = {
     type: PropTypes.oneOf(['default', 'primary', 'secondary', 'danger', 'link']),
     size: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs']),

@@ -48,4 +48,4 @@ None.
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/14-TransformView.png?raw=true)
+![](../../screenshots/14-TransformView.png)

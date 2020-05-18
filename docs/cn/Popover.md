@@ -55,4 +55,4 @@ let shadowStyle = {
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/07-Popover.png?raw=true)
+![](../../screenshots/07-Popover.png)

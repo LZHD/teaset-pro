@@ -6,7 +6,7 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import {View, ScrollView} from 'react-native';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from '../../themes/Theme';
 import Overlay from '../Overlay/Overlay';
 import ActionPopoverItem from './ActionPopoverItem';
 

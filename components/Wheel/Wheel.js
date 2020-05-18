@@ -6,7 +6,7 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import {StyleSheet, View, Text, Animated, PanResponder, ViewPropTypes} from 'react-native';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from '../../themes/Theme';
 import WheelItem from './WheelItem';
 
 export default class Wheel extends Component {
@@ -61,7 +61,7 @@ export default class Wheel extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.index || this.props.index === 0) {
       this.currentPosition.setValue(this.props.index * this.holeHeight);
-    }    
+    }
   }
 
   createPanResponder() {

@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import {Theme, ListRow, Select} from 'teaset';
+import {Theme, ListRow, Select} from 'teaset-pro';
 
 export default class SelectRow extends ListRow {
 

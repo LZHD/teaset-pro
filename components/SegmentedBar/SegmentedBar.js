@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {View, ScrollView, TouchableOpacity, Animated, ViewPropTypes} from 'react-native';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from '../../themes/Theme';
 import SegmentedItem from './SegmentedItem';
 
 export default class SegmentedBar extends Component {

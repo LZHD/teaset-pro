@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, ScrollView, Text} from 'react-native';
 
-import {NavigationPage, ListRow, Input, Label} from 'teaset';
+import {NavigationPage, ListRow, Input, Label} from 'teaset-pro';
 
 export default class InputExample extends NavigationPage {
 

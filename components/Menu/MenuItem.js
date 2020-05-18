@@ -6,7 +6,7 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from '../../themes/Theme';
 
 export default class MenuItem extends Component {
 
@@ -28,7 +28,7 @@ export default class MenuItem extends Component {
       paddingLeft: Theme.menuItemPaddingLeft,
       paddingRight: Theme.menuItemPaddingRight,
       paddingTop: Theme.menuItemPaddingTop,
-      paddingBottom: Theme.menuItemPaddingBottom,      
+      paddingBottom: Theme.menuItemPaddingBottom,
       borderColor: Theme.menuItemSeparatorColor,
       borderTopWidth: Theme.menuItemSeparatorWidth,
       flexDirection: 'row',

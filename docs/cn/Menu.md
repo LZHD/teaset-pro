@@ -49,4 +49,4 @@ fromView.measureInWindow((x, y, width, height) => {
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/20a-Menu1.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/20a-Menu2.png?raw=true)
+![](../../screenshots/20a-Menu1.png) ![](../../screenshots/20a-Menu2.png)

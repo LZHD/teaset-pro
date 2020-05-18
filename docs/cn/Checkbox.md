@@ -68,4 +68,4 @@ None.
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/03-Checkbox.png?raw=true)
+![](../../screenshots/03-Checkbox.png)

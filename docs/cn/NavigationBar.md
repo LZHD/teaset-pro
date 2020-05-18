@@ -77,17 +77,17 @@ None.
 ## Example
 简单用法
 ```
-<NavigationBar title='Teaset' />
+<NavigationBar title='teaset-pro' />
 ```
 
 Android风格导航条
 ```
-<NavigationBar title='Teaset' type='android' />
+<NavigationBar title='teaset-pro' type='android' />
 ```
 
 返回按钮
 ```
-<NavigationBar title='Teaset' leftView={<NavigationBar.BackButton title='Back' />} />
+<NavigationBar title='teaset-pro' leftView={<NavigationBar.BackButton title='Back' />} />
 ```
 
 自定义
@@ -98,7 +98,7 @@ Android风格导航条
   tintColor='#333'
   title={
     <View style={{flex: 1, paddingLeft: 4, paddingRight: 4, alignItems: 'center'}}>
-      <Label style={{color: '#000', fontSize: 15}} text='Teaset' />
+      <Label style={{color: '#000', fontSize: 15}} text='teaset-pro' />
       <Label style={{color: '#333', fontSize: 11}}  text='Secondary title' />
     </View>
   }
@@ -114,4 +114,4 @@ Android风格导航条
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/08-NavigationBar.png?raw=true)
+![](../../screenshots/08-NavigationBar.png)

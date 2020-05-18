@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Image} from 'react-native';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from '../../themes/Theme';
 import NavigationButton from './NavigationButton';
 
 export default class NavigationIconButton extends NavigationButton {

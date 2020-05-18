@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {View, Text, ViewPropTypes} from 'react-native';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from '../../themes/Theme';
 import Badge from '../Badge/Badge';
 
 export default class SegmentedItem extends Component {

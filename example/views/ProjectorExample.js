@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, ScrollView} from 'react-native';
 
-import {NavigationPage, ListRow, Projector, Button, Label, Input} from 'teaset';
+import {NavigationPage, ListRow, Projector, Button, Label, Input} from 'teaset-pro';
 
 export default class ProjectorExample extends NavigationPage {
 

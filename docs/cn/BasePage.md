@@ -30,7 +30,7 @@ BasePage 定义一个基础页面组件, 是 Page 的抽象封装, 需要派生�
 import React from 'react';
 import {Navigator, View} from 'react-native';
 
-import {BasePage, Input, Button} from 'teaset';
+import {BasePage, Input, Button} from 'teaset-pro';
 
 export default class Login extends BasePage {
 

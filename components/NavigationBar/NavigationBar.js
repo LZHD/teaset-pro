@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, Platform, StatusBar, View, Text, Animated, ViewPropTypes, Dimensions} from 'react-native';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from '../../themes/Theme';
 import NavigationTitle from './NavigationTitle';
 import NavigationButton from './NavigationButton';
 import NavigationLinkButton from './NavigationLinkButton';
@@ -115,7 +115,7 @@ export default class NavigationBar extends Component {
       } else {
         barTop.setValue(barTopValue);
         barOpacity.setValue(barOpacityValue);
-      }      
+      }
     }
   }
 
