@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Overlay from '../Overlay/Overlay';
-import Theme from 'teaset-pro/themes/Theme';
+import Theme from '../../themes/Theme';
 import Button from '../Button/Button';
 import PropTypes from 'prop-types';
 import Label from '../Label/Label';

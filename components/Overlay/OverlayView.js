@@ -6,7 +6,7 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import ReactNative, {StyleSheet, Animated, View, PanResponder, Platform, ViewPropTypes} from 'react-native';
 
-import Theme from 'teaset-pro/themes/Theme';
+import Theme from '../../themes/Theme';
 import KeyboardSpace from '../KeyboardSpace/KeyboardSpace';
 
 export default class OverlayView extends Component {

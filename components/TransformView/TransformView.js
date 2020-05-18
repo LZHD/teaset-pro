@@ -6,7 +6,7 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import {StyleSheet, View, Animated, Easing, PanResponder, ViewPropTypes} from 'react-native';
 
-import Theme from 'teaset-pro/themes/Theme';
+import Theme from '../../themes/Theme';
 
 export default class TransformView extends Component {
 

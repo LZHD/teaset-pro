@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Platform, View, Dimensions} from 'react-native';
 
-import Theme from 'teaset-pro/themes/Theme';
+import Theme from '../../themes/Theme';
 import TeaNavigator from '../TeaNavigator/TeaNavigator';
 import BasePage from '../BasePage/BasePage';
 import NavigationBar from '../NavigationBar/NavigationBar';

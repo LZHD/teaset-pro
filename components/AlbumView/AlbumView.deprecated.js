@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import {StyleSheet, View, Image, Animated, ViewPropTypes} from 'react-native';
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
 
-import Theme from 'teaset-pro/themes/Theme';
+import Theme from '../../themes/Theme';
 import TransformView from '../TransformView/TransformView';
 import CarouselControl from '../Carousel/CarouselControl';
 

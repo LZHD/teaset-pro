@@ -6,7 +6,7 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import {StyleSheet, View, Text, Animated, PanResponder, ViewPropTypes} from 'react-native';
 
-import Theme from 'teaset-pro/themes/Theme';
+import Theme from '../../themes/Theme';
 import WheelItem from './WheelItem';
 
 export default class Wheel extends Component {
