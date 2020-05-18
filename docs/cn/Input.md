@@ -61,4 +61,4 @@ None.
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/04-Input.png?raw=true)
+![](../../screenshots/04-Input.png)

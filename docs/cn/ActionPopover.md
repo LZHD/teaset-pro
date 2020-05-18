@@ -49,4 +49,4 @@ fromView.measureInWindow((x, y, width, height) => {
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/18-ActionPopover.png?raw=true)
+![](../../screenshots/18-ActionPopover.png)

@@ -49,4 +49,4 @@ None.
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/06-Badge.png?raw=true)
+![](../../screenshots/06-Badge.png)

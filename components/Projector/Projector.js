@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, View, ViewPropTypes} from 'react-native';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from 'teaset-pro/themes/Theme';
 
 export default class Projector extends Component {
 
@@ -35,7 +35,7 @@ export default class Projector extends Component {
         {children.map((item, i) => {
           let active = (i == index);
           if (active) this.slideShowns[i] = true;
-          let renderSlideStyle = [slideStyle, styles.slide, {opacity: active ? 1 : 0}]; 
+          let renderSlideStyle = [slideStyle, styles.slide, {opacity: active ? 1 : 0}];
           return (
             <View key={i} style={renderSlideStyle} pointerEvents={active ? 'auto' : 'none'}>
               {this.slideShowns[i] ? item : null}

@@ -68,4 +68,4 @@ fromView.measureInWindow((x, y, width, height) => {
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/20-PopoverPicker.png?raw=true)
+![](../../screenshots/20-PopoverPicker.png)

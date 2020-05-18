@@ -107,4 +107,4 @@ detail 长文本、标题显示在上侧
 ```
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/09-ListRow.png?raw=true)
+![](../../screenshots/09-ListRow.png)

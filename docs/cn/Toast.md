@@ -66,5 +66,5 @@ hideCustom() {
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/16-Toast1.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/16-Toast2.png?raw=true)
-![](https://github.com/rilyu/teaset/blob/master/screenshots/16-Toast3.png?raw=true)
+![](../../screenshots/16-Toast1.png) ![](../../screenshots/16-Toast2.png)
+![](../../screenshots/16-Toast3.png)

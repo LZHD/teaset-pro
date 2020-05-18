@@ -62,4 +62,4 @@ PullPicker.show(
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/19-PullPicker.png?raw=true)
+![](../../screenshots/19-PullPicker.png)

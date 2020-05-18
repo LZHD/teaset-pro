@@ -11,8 +11,8 @@ npm install --save teaset
 # Example
 Clone teaset project from github (or download zip file):
 ```
-git clone https://github.com/rilyu/teaset.git
-cd teaset/example
+git clone https://github.com/lzhd/teaset-pro.git
+cd teaset-pro/example
 npm install
 ```
 To run example on iOS:
@@ -35,7 +35,7 @@ If SafeAreaView is used, please use ```Theme.set({fitIPhoneX: false})``` to manu
 If you use Redux, you need to use the ```<TopView>``` package container (thanks [@Alexorz](https://github.com/Alexorz) ).
 
 ```
-import { TopView } from 'teaset';
+import { TopView } from 'teaset-pro';
 
 container => () => <Provider store={store}><TopView>{container}</TopView></Provider>
 ```
@@ -48,100 +48,100 @@ The document is being written, please refer to the example source code.
 # Screenshots
 
 ## Components
-![](https://github.com/rilyu/teaset/blob/master/screenshots/00-Teaset1.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/00-Teaset2.png?raw=true)
+![](screenshots/00-Teaset1.png) ![](screenshots/00-Teaset2.png)
 
 ## Theme
-![](https://github.com/rilyu/teaset/blob/master/screenshots/00a-Theme1.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/00a-Theme2.png?raw=true)
-![](https://github.com/rilyu/teaset/blob/master/screenshots/00a-Theme3.png?raw=true)
+![](screenshots/00a-Theme1.png) ![](screenshots/00a-Theme2.png)
+![](screenshots/00a-Theme3.png)
 
 ## Label
-![](https://github.com/rilyu/teaset/blob/master/screenshots/01-Label.png?raw=true)
+![](screenshots/01-Label.png)
 
 ## Button
-![](https://github.com/rilyu/teaset/blob/master/screenshots/02-Button.png?raw=true)
+![](screenshots/02-Button.png)
 
 ## Checkbox
-![](https://github.com/rilyu/teaset/blob/master/screenshots/03-Checkbox.png?raw=true)
+![](screenshots/03-Checkbox.png)
 
 ## Input
-![](https://github.com/rilyu/teaset/blob/master/screenshots/04-Input.png?raw=true)
+![](screenshots/04-Input.png)
 
 ## Select
-![](https://github.com/rilyu/teaset/blob/master/screenshots/05-Select1.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/05-Select2.png?raw=true)
-![](https://github.com/rilyu/teaset/blob/master/screenshots/05-Select3.png?raw=true)
+![](screenshots/05-Select1.png) ![](screenshots/05-Select2.png)
+![](screenshots/05-Select3.png)
 
 ## Stepper
-![](https://github.com/rilyu/teaset/blob/master/screenshots/05a-Stepper.png?raw=true)
+![](screenshots/05a-Stepper.png)
 
 ## SearchInput
-![](https://github.com/rilyu/teaset/blob/master/screenshots/05b-SearchInput.png?raw=true)
+![](screenshots/05b-SearchInput.png)
 
 ## Badge
-![](https://github.com/rilyu/teaset/blob/master/screenshots/06-Badge.png?raw=true)
+![](screenshots/06-Badge.png)
 
 ## Popover
-![](https://github.com/rilyu/teaset/blob/master/screenshots/07-Popover.png?raw=true)
+![](screenshots/07-Popover.png)
 
 ## NavigationBar
-![](https://github.com/rilyu/teaset/blob/master/screenshots/08-NavigationBar.png?raw=true)
+![](screenshots/08-NavigationBar.png)
 
 ## ListRow
-![](https://github.com/rilyu/teaset/blob/master/screenshots/09-ListRow.png?raw=true)
+![](screenshots/09-ListRow.png)
 
 ## Carousel
-![](https://github.com/rilyu/teaset/blob/master/screenshots/10-Carousel.png?raw=true)
+![](screenshots/10-Carousel.png)
 
 ## Projector
-![](https://github.com/rilyu/teaset/blob/master/screenshots/11-Projector.png?raw=true)
+![](screenshots/11-Projector.png)
 
 ## SegmentedBar
-![](https://github.com/rilyu/teaset/blob/master/screenshots/11a-SegmentedBar1.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/11a-SegmentedBar2.png?raw=true)
-![](https://github.com/rilyu/teaset/blob/master/screenshots/11a-SegmentedBar3.png?raw=true)
+![](screenshots/11a-SegmentedBar1.png) ![](screenshots/11a-SegmentedBar2.png)
+![](screenshots/11a-SegmentedBar3.png)
 
 ## SegmentedView
-![](https://github.com/rilyu/teaset/blob/master/screenshots/12-SegmentedView.png?raw=true)
+![](screenshots/12-SegmentedView.png)
 
 ## TabView
-![](https://github.com/rilyu/teaset/blob/master/screenshots/13-TabView.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/13-TabView2.png?raw=true)
+![](screenshots/13-TabView.png) ![](screenshots/13-TabView2.png)
 
 ## TransformView
-![](https://github.com/rilyu/teaset/blob/master/screenshots/14-TransformView.png?raw=true)
+![](screenshots/14-TransformView.png)
 
 ## AlbumView
-![](https://github.com/rilyu/teaset/blob/master/screenshots/14a-AlbumView1.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/14a-AlbumView2.png?raw=true)
+![](screenshots/14a-AlbumView1.png) ![](screenshots/14a-AlbumView2.png)
 
 ## Wheel
-![](https://github.com/rilyu/teaset/blob/master/screenshots/14b-Wheel.png?raw=true)
+![](screenshots/14b-Wheel.png)
 
 ## Overlay
-![](https://github.com/rilyu/teaset/blob/master/screenshots/15-Overlay1.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/15-Overlay2.png?raw=true)
-![](https://github.com/rilyu/teaset/blob/master/screenshots/15-Overlay3.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/15-Overlay6.png?raw=true)
-![](https://github.com/rilyu/teaset/blob/master/screenshots/15-Overlay4.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/15-Overlay5.png?raw=true)
+![](screenshots/15-Overlay1.png) ![](screenshots/15-Overlay2.png)
+![](screenshots/15-Overlay3.png) ![](screenshots/15-Overlay6.png)
+![](screenshots/15-Overlay4.png) ![](screenshots/15-Overlay5.png)
 
 ## Toast
-![](https://github.com/rilyu/teaset/blob/master/screenshots/16-Toast1.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/16-Toast2.png?raw=true)
-![](https://github.com/rilyu/teaset/blob/master/screenshots/16-Toast3.png?raw=true)
+![](screenshots/16-Toast1.png) ![](screenshots/16-Toast2.png)
+![](screenshots/16-Toast3.png)
 
 ## ActionSheet
-![](https://github.com/rilyu/teaset/blob/master/screenshots/17-ActionSheet.png?raw=true)
+![](screenshots/17-ActionSheet.png)
 
 ## ActionPopover
-![](https://github.com/rilyu/teaset/blob/master/screenshots/18-ActionPopover.png?raw=true)
+![](screenshots/18-ActionPopover.png)
 
 ## PullPicker
-![](https://github.com/rilyu/teaset/blob/master/screenshots/19-PullPicker.png?raw=true)
+![](screenshots/19-PullPicker.png)
 
 ## PopoverPicker
-![](https://github.com/rilyu/teaset/blob/master/screenshots/20-PopoverPicker.png?raw=true)
+![](screenshots/20-PopoverPicker.png)
 
 ## Menu
-![](https://github.com/rilyu/teaset/blob/master/screenshots/20a-Menu1.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/20a-Menu2.png?raw=true)
+![](screenshots/20a-Menu1.png) ![](screenshots/20a-Menu2.png)
 
 ## Drawer
-![](https://github.com/rilyu/teaset/blob/master/screenshots/20b-Drawer1.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/20b-Drawer2.png?raw=true)
+![](screenshots/20b-Drawer1.png) ![](screenshots/20b-Drawer2.png)
 
 ## ModalIndicator
-![](https://github.com/rilyu/teaset/blob/master/screenshots/21-ModalIndicator.png?raw=true)
+![](screenshots/21-ModalIndicator.png)
 
 # License
 MIT

@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
 
-import {NavigationPage, Theme, Wheel} from 'teaset';
+import {NavigationPage, Theme, Wheel} from 'teaset-pro';
 
 export default class WheelExample extends NavigationPage {
 
@@ -44,7 +44,7 @@ export default class WheelExample extends NavigationPage {
       date.setMonth(month);
     } else {
       date.setMonth(month);
-      date.setDate(day);      
+      date.setDate(day);
     }
     this.setState({date});
   }

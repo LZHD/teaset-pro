@@ -7,7 +7,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Image, ScrollView} from 'react-native';
 
-import {NavigationPage, ListRow, SegmentedView, Carousel} from 'teaset';
+import {NavigationPage, ListRow, SegmentedView, Carousel} from 'teaset-pro';
 
 export default class MultiScrollViewExample extends NavigationPage {
 

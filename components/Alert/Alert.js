@@ -9,9 +9,9 @@ export default class Alert extends Overlay {
   static OperationView = OperationView;
   static AlertView = AlertView
 
-  static alert(confirmItem, cancelItem, options = {}) {
+  static alert(title, message, confirmItem, cancelItem, options = {}) {
     return super.show(
-        <this.AlertView confirmItem={confirmItem} cancelItem={cancelItem} {...options} />
+        <this.AlertView confirmItem={confirmItem} cancelItem={cancelItem} title={title} message={message} {...options} />
     );
   }
 
@@ -19,6 +19,20 @@ export default class Alert extends Overlay {
     return super.show(
         <this.OperationView items={items} cancelItem={cancelItem} {...options} />
     );
+  }
+
+  static show(title, submit = () => {}, content = null, cancel = () => {}, option = {}) {
+    this.alert(title, content,
+      {
+        title: '确定',
+        onPress: submit
+      },
+      {
+        title: '取消',
+        onPress: cancel
+      },
+      option
+    )
   }
 
 }

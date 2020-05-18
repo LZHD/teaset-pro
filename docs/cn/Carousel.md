@@ -85,4 +85,4 @@ None.
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/10-Carousel.png?raw=true)
+![](../../screenshots/10-Carousel.png)

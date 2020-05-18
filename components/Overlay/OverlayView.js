@@ -6,7 +6,7 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import ReactNative, {StyleSheet, Animated, View, PanResponder, Platform, ViewPropTypes} from 'react-native';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from 'teaset-pro/themes/Theme';
 import KeyboardSpace from '../KeyboardSpace/KeyboardSpace';
 
 export default class OverlayView extends Component {
@@ -51,7 +51,7 @@ export default class OverlayView extends Component {
       this.backListener = BackHandler.addEventListener('hardwareBackPress', () => {
         if (this.props.closeOnHardwareBackPress) {
           this.closeRequest();
-          return true;          
+          return true;
         } else {
           return false;
         }
@@ -86,7 +86,7 @@ export default class OverlayView extends Component {
     ];
     return animates;
   }
-  
+
   get disappearAnimates() {
     let duration = 200;
     let animates = [
@@ -137,7 +137,7 @@ export default class OverlayView extends Component {
   }
 
   disappearCompleted() {
-    let {onDisappearCompleted} = this.props;    
+    let {onDisappearCompleted} = this.props;
     onDisappearCompleted && onDisappearCompleted();
   }
 

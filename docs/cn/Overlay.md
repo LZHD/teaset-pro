@@ -197,6 +197,6 @@ fromView.measureInWindow((x, y, width, height) => {
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/15-Overlay1.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/15-Overlay2.png?raw=true)
-![](https://github.com/rilyu/teaset/blob/master/screenshots/15-Overlay3.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/15-Overlay6.png?raw=true)
-![](https://github.com/rilyu/teaset/blob/master/screenshots/15-Overlay4.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/15-Overlay5.png?raw=true)
+![](../../screenshots/15-Overlay1.png) ![](../../screenshots/15-Overlay2.png)
+![](../../screenshots/15-Overlay3.png) ![](../../screenshots/15-Overlay6.png)
+![](../../screenshots/15-Overlay4.png) ![](../../screenshots/15-Overlay5.png)

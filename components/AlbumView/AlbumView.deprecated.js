@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import {StyleSheet, View, Image, Animated, ViewPropTypes} from 'react-native';
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
 
-import Theme from 'teaset/themes/Theme';
+import Theme from 'teaset-pro/themes/Theme';
 import TransformView from '../TransformView/TransformView';
 import CarouselControl from '../Carousel/CarouselControl';
 
@@ -150,7 +150,7 @@ export default class AlbumView extends Component {
       }, error => {
         onLoadImageFailure && onLoadImageFailure(index, error);
       });
-    }    
+    }
   }
 
   preloadImage(index) {
@@ -314,7 +314,7 @@ export default class AlbumView extends Component {
         Animated.spring(this.state.rightTranslateX, {
           toValue: newrtx,
           friction: 9,
-        }),      
+        }),
       ]).start();
       return true;
     }
@@ -358,7 +358,7 @@ export default class AlbumView extends Component {
 
     return (
       <View style={viewStyle}>
-        <Animated.Image style={imageStyle} resizeMode='contain' pointerEvents='none' source={imageSource} key={'l' + leftIndex} />        
+        <Animated.Image style={imageStyle} resizeMode='contain' pointerEvents='none' source={imageSource} key={'l' + leftIndex} />
       </View>
     );
   }
@@ -397,7 +397,7 @@ export default class AlbumView extends Component {
 
     return (
       <View style={viewStyle}>
-        <Animated.Image style={imageStyle} resizeMode='contain' pointerEvents='none' source={imageSource} key={'r' + rightIndex} />        
+        <Animated.Image style={imageStyle} resizeMode='contain' pointerEvents='none' source={imageSource} key={'r' + rightIndex} />
       </View>
     );
   }

@@ -70,4 +70,4 @@ None.
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/12-SegmentedView.png?raw=true)
+![](../../screenshots/12-SegmentedView.png)

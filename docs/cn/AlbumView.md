@@ -58,4 +58,4 @@ None.
 ```
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/14a-AlbumView1.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/14a-AlbumView2.png?raw=true)
+![](../../screenshots/14a-AlbumView1.png) ![](../../screenshots/14a-AlbumView2.png)

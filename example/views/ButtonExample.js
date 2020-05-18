@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, ScrollView, Text, Image} from 'react-native';
 
-import {NavigationPage, ListRow, Button, Label, Theme} from 'teaset';
+import {NavigationPage, ListRow, Button, Label, Theme} from 'teaset-pro';
 
 export default class ButtonExample extends NavigationPage {
 

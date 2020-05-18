@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, ScrollView} from 'react-native';
 
-import {NavigationPage, ListRow, PopoverPicker} from 'teaset';
+import {NavigationPage, ListRow, PopoverPicker} from 'teaset-pro';
 
 export default class PopoverPickerExample extends NavigationPage {
 

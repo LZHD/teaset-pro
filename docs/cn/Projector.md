@@ -35,4 +35,4 @@ None.
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/11-Projector.png?raw=true)
+![](../../screenshots/11-Projector.png)

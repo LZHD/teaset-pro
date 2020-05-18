@@ -79,4 +79,4 @@ None.
 
 
 ## Screenshots
-![](https://github.com/rilyu/teaset/blob/master/screenshots/13-TabView.png?raw=true) ![](https://github.com/rilyu/teaset/blob/master/screenshots/13-TabView2.png?raw=true)
+![](../../screenshots/13-TabView.png) ![](../../screenshots/13-TabView2.png)

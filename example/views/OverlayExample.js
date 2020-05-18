@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, Image, ScrollView, TouchableWithoutFeedback, Dimensions} from 'react-native';
 
-import {Theme, NavigationPage, ListRow, Overlay, Label, Button, Checkbox, Toast, Alert } from 'teaset';
+import {Theme, NavigationPage, ListRow, Overlay, Label, Button, Checkbox, Toast, Alert } from 'teaset-pro';
 
 export default class OverlayExample extends NavigationPage {
 
@@ -162,21 +162,62 @@ export default class OverlayExample extends NavigationPage {
           detail={<Image style={{width: 40, height: 40}} source={img} resizeMode='cover' ref={v => this.imgView = v} />}
           onPress={() => this.showPopCustom(img, this.imgView)}
           bottomSeparator='full' />
-          <ListRow
-              title="alert"
-              onPress={() => {
-                  Alert.alert(
-                      {
-                          title: '确定',
-                          onPress: () => Toast.message('alert'),
-                      },
-                      {
-                          title: '确定',
-                          onPress: () => Toast.message('alert'),
-                      },
-                  );
-              }}
-          />
+        <ListRow
+          title="Alert"
+          onPress={() => {
+            Alert.alert(
+              '测试',
+              '测试内容',
+              {
+                title: '确定',
+                onPress: () => Toast.message('alert'),
+              },
+              {
+                title: '确定',
+                onPress: () => Toast.message('alert'),
+              },
+              {
+                style: {
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                },
+              },
+            );
+          }}
+        />
+        <ListRow
+          title="Operation"
+          onPress={() => {
+            Alert.operation(
+              [
+                {
+                  title: '确定',
+                  onPress: () => Toast.message('alert'),
+                },
+                {
+                  title: '确定',
+                  onPress: () => Toast.message('alert'),
+                },
+              ],
+              {
+                title: '取消',
+                onPress: () => Toast.message('alert'),
+              },
+              {
+                style: {
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                },
+              },
+            );
+          }}
+        />
+        <ListRow
+          title="Alert"
+          onPress={() => {
+            Alert.show('测试')
+          }}
+        />
         <View style={{height: 20}} />
         <ListRow
           title='Popover'
