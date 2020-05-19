@@ -65,8 +65,8 @@ export default class AlertView extends Overlay.PopView {
             borderRightWidth: Theme.pixelSize,
           }}
           size="lg"
-          title={confirmItem.title}
-          onPress={() => this.onConfirmPress()}
+          title={cancelItem.title}
+          onPress={() => this.onCancelItemPress()}
         />
         <Button
           style={{
@@ -75,8 +75,8 @@ export default class AlertView extends Overlay.PopView {
           }}
           titleStyle={{ color: 'red' }}
           size="lg"
-          title={cancelItem.title}
-          onPress={() => this.onCancelItemPress()}
+          title={confirmItem.title}
+          onPress={() => this.onConfirmPress()}
         />
       </View>
     )

@@ -173,14 +173,8 @@ export default class OverlayExample extends NavigationPage {
                 onPress: () => Toast.message('alert'),
               },
               {
-                title: '确定',
+                title: '取消',
                 onPress: () => Toast.message('alert'),
-              },
-              {
-                style: {
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                },
               },
             );
           }}
@@ -203,19 +197,13 @@ export default class OverlayExample extends NavigationPage {
                 title: '取消',
                 onPress: () => Toast.message('alert'),
               },
-              {
-                style: {
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                },
-              },
             );
           }}
         />
         <ListRow
           title="Alert"
           onPress={() => {
-            Alert.show('测试')
+            Alert.show('测试');
           }}
         />
         <View style={{height: 20}} />
