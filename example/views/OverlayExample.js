@@ -163,7 +163,7 @@ export default class OverlayExample extends NavigationPage {
           onPress={() => this.showPopCustom(img, this.imgView)}
           bottomSeparator='full' />
         <ListRow
-          title="Alert"
+          title="Alert custom"
           onPress={() => {
             Alert.alert(
               '测试',
@@ -185,11 +185,11 @@ export default class OverlayExample extends NavigationPage {
             Alert.operation(
               [
                 {
-                  title: '确定',
+                  title: '拍照',
                   onPress: () => Toast.message('alert'),
                 },
                 {
-                  title: '确定',
+                  title: '相册',
                   onPress: () => Toast.message('alert'),
                 },
               ],

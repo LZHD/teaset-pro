@@ -59,6 +59,7 @@ export default class OperationView extends Overlay.PopView {
           key={'item' + i}
           title={item.title}
           topSeparator={i === 0 ? 'none' : 'full'}
+          bottomSeparator={(i === item.length - 1 && cancelItem) ? 'full' : 'none'}
           disabled={item.disabled}
           onPress={() => this.onItemPress(item)}
         />
@@ -79,7 +80,7 @@ export default class OperationView extends Overlay.PopView {
     return super.renderContent(
       <View style={{
         backgroundColor: Theme.defaultColor,
-        minWidth: 260,
+        minWidth: 245,
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'stretch',

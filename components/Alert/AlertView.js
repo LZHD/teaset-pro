@@ -93,7 +93,7 @@ export default class AlertView extends Overlay.PopView {
     return super.renderContent(
       <View style={{
         backgroundColor: Theme.defaultColor,
-        minWidth: 260,
+        minWidth: 245,
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center'
