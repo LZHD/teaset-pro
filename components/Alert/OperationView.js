@@ -59,7 +59,6 @@ export default class OperationView extends Overlay.PopView {
           key={'item' + i}
           title={item.title}
           topSeparator={i === 0 ? 'none' : 'full'}
-          bottomSeparator={(i === item.length - 1 && cancelItem) ? 'full' : 'none'}
           disabled={item.disabled}
           onPress={() => this.onItemPress(item)}
         />
@@ -71,6 +70,10 @@ export default class OperationView extends Overlay.PopView {
           key={'cancelItem'}
           type='cancel'
           title={cancelItem.title}
+          topSeparator={<View style={{
+            backgroundColor: Theme.asItemSeparatorColor,
+            height: +Theme.asItemSeparatorLineWidth,
+          }}/>}
           disabled={cancelItem.disabled}
           onPress={() => this.onCancelItemPress()}
         />
