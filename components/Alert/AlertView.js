@@ -62,7 +62,7 @@ export default class AlertView extends Overlay.PopView {
           style={{
             ...styles.btnStyle,
             borderBottomLeftRadius: 10,
-            borderRightWidth: Theme.pixelSize,
+            borderRightWidth: Theme.pixelSize / 2,
           }}
           size="lg"
           title={cancelItem.title}
@@ -72,6 +72,7 @@ export default class AlertView extends Overlay.PopView {
           style={{
             ...styles.btnStyle,
             borderBottomRightRadius: 10,
+            borderLeftWidth: Theme.pixelSize / 2,
           }}
           titleStyle={{ color: 'red' }}
           size="lg"
