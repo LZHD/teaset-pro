@@ -3,8 +3,6 @@
 
 A UI library for react native, provides 20+ pure JS(ES6) components, focusing on content display and action control.
 
-[![NPM version](https://img.shields.io/npm/v/teaset-pro.svg)](https://www.npmjs.com/package/teaset-pro)
-
 # Installation
 ```
 npm install --save teaset-pro

@@ -89,8 +89,7 @@ export default class ListRow extends Component {
     switch (type) {
       case 'full': return <View style={separatorStyle} />;
       case 'indent': return <View style={indentViewStyle}><View style={separatorStyle} /></View>;
-      case 'none': return  null;
-      default: return React.isValidElement(type) ? type : null;
+      default: return null;
     }
   }
 

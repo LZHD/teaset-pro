@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, Image, ScrollView, TouchableWithoutFeedback, Dimensions} from 'react-native';
 
-import {Theme, NavigationPage, ListRow, Overlay, Label, Button, Checkbox, Toast, Alert } from 'teaset-pro';
+import {Theme, NavigationPage, ListRow, Overlay, Label, Button, Checkbox } from 'teaset-pro';
 
 export default class OverlayExample extends NavigationPage {
 
@@ -162,50 +162,6 @@ export default class OverlayExample extends NavigationPage {
           detail={<Image style={{width: 40, height: 40}} source={img} resizeMode='cover' ref={v => this.imgView = v} />}
           onPress={() => this.showPopCustom(img, this.imgView)}
           bottomSeparator='full' />
-        <ListRow
-          title="Alert custom"
-          onPress={() => {
-            Alert.alert(
-              '测试',
-              '测试内容',
-              {
-                title: '确定',
-                onPress: () => Toast.message('alert'),
-              },
-              {
-                title: '取消',
-                onPress: () => Toast.message('alert'),
-              },
-            );
-          }}
-        />
-        <ListRow
-          title="Operation"
-          onPress={() => {
-            Alert.operation(
-              [
-                {
-                  title: '拍照',
-                  onPress: () => Toast.message('alert'),
-                },
-                {
-                  title: '相册',
-                  onPress: () => Toast.message('alert'),
-                },
-              ],
-              {
-                title: '取消',
-                onPress: () => Toast.message('alert'),
-              },
-            );
-          }}
-        />
-        <ListRow
-          title="Alert"
-          onPress={() => {
-            Alert.show('测试');
-          }}
-        />
         <View style={{height: 20}} />
         <ListRow
           title='Popover'
