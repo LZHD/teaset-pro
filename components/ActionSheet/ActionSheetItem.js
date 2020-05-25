@@ -64,8 +64,7 @@ export default class ActionSheetItem extends Component {
     switch (separator) {
       case 'full': return <View style={separatorStyle} />;
       case 'indent': return <View style={indentViewStyle}><View style={separatorStyle} /></View>;
-      case 'none': return null;
-      default: return React.isValidElement(separator) ? separator : null;
+      default: return null;
     }
   }
 
