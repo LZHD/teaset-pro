@@ -41,6 +41,7 @@ import NavigationPage from './components/NavigationPage/NavigationPage';
 
 import KeyboardSpace from './components/KeyboardSpace/KeyboardSpace';
 import Alert from './components/Alert/Alert';
+import SelectRow from './components/SelectRow/SelectRow';
 
 var Teaset = {
   Theme,
@@ -82,7 +83,8 @@ var Teaset = {
   NavigationPage,
 
   KeyboardSpace,
-  Alert
+  Alert,
+  SelectRow,
 };
 
 module.exports = Teaset;

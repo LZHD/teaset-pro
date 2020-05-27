@@ -5,9 +5,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Image, ScrollView, Switch} from 'react-native';
 
-import {Theme, NavigationPage, ListRow, SegmentedView, Label, PullPicker} from 'teaset-pro';
-
-import SelectRow from './SelectRow';
+import {Theme, NavigationPage, ListRow, SegmentedView, Label, PullPicker, SelectRow} from 'teaset-pro';
 
 export default class SegmentedViewExample extends NavigationPage {
 
