@@ -1,11 +1,8 @@
-// SelectRow.js
-
-'use strict';
-
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Theme, ListRow, Select} from 'teaset-pro';
+import ListRow from '../ListRow/ListRow';
+import Select from '../Select/Select';
 
 export default class SelectRow extends ListRow {
 
@@ -27,12 +24,12 @@ export default class SelectRow extends ListRow {
   };
 
   renderDetail() {
-    let {title, detail, value, items, getItemValue, getItemText, emptyText, emptyTextColor, onSelected} = this.props;
+    let { title, detail, value, items, getItemValue, getItemText, emptyText, emptyTextColor, onSelected } = this.props;
     return (
       <Select
-        style={{borderWidth: 0, flex: 1}}
+        style={{ borderWidth: 0, flex: 1 }}
         value={value}
-        valueStyle={{textAlign: 'right'}}
+        valueStyle={{ textAlign: 'right' }}
         items={items}
         getItemValue={getItemValue}
         getItemText={getItemText}
@@ -41,7 +38,7 @@ export default class SelectRow extends ListRow {
         placeholderTextColor={emptyTextColor}
         pickerTitle={typeof title === 'string' ? title : null}
         onSelected={(item, index) => onSelected && onSelected(items[index], index)}
-        />
+      />
     );
   }
 

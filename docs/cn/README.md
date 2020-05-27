@@ -45,6 +45,32 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
 import Label from 'teaset-pro/components/Label/Label';
 ```
+或者配合 [`babel-plugin-import`](https://github.com/ant-design/babel-plugin-import) 使用
+
+```js
+import { Label } from 'teaset-pro'
+```
+
+```js
+[
+  'import',
+  {
+    libraryDirectory: 'components',
+    libraryName: 'teaset-pro',
+    camel2DashComponentName: false,
+    customName: name => {
+      if (name === 'TopView') {
+        return 'teaset-pro/components/Overlay/TopView';
+      } else if (name === 'Theme') {
+        return 'teaset-pro/themes/Theme';
+      } else {
+        return `teaset-pro/components/${name}/${name}`;
+      }
+    },
+  },
+  'teaset-pro',
+]
+```
 
 ## 运行示例程序
 从 github clone teaset 工程(或者下载 zip 文件):
