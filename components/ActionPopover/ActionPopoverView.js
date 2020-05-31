@@ -15,7 +15,7 @@ export default class ActionPopoverView extends Overlay.PopoverView {
   static propTypes = {
     ...Overlay.PopoverView.propTypes,
     items: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string,
+      title: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.number]),
       onPress: PropTypes.func,
     })).isRequired,
   };
