@@ -48,11 +48,6 @@ export default class SegmentedView extends Component {
     this.segmentedBar = null;
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.activeIndex != this.props.activeIndex && this.refs.carousel) {
-      this.refs.carousel.scrollToPage(this.props.activeIndex);
-    }
-  }
 
   get sheets() {
     let {children} = this.props;
@@ -62,12 +57,6 @@ export default class SegmentedView extends Component {
     }
     children = children.filter(item => item); //remove empty item
     return children;
-  }
-
-  get activeIndex() {
-    let activeIndex = this.props.activeIndex;
-    if (activeIndex || activeIndex === 0) return activeIndex;
-    else return this.state.activeIndex;
   }
 
   buildStyle() {
@@ -80,7 +69,7 @@ export default class SegmentedView extends Component {
   }
 
   onSegmentedBarChange(index) {
-    if (index == this.activeIndex) return;
+    if (index === this.activeIndex) return;
     this.setState({activeIndex: index}, () => {
       if (this.refs.carousel) {
         this.refs.carousel.scrollToPage(index, false);
@@ -90,7 +79,7 @@ export default class SegmentedView extends Component {
   }
 
   onCarouselChange(index) {
-    if (index == this.state.activeIndex) return;
+    if (index === this.state.activeIndex) return;
     this.setState({activeIndex: index}, () => {
       if (this.segmentedBar) {
         this.segmentedBar.activeIndex = index;
@@ -102,7 +91,7 @@ export default class SegmentedView extends Component {
   renderBar() {
     let {barPosition, barStyle, justifyItem, indicatorType, indicatorPosition, indicatorLineColor, indicatorLineWidth, indicatorPositionPadding, animated, autoScroll, onChange} = this.props;
 
-    if (!indicatorPosition && barPosition == 'bottom') {
+    if (!indicatorPosition && barPosition === 'bottom') {
       indicatorPosition = 'top';
     }
 
@@ -119,7 +108,7 @@ export default class SegmentedView extends Component {
           indicatorPositionPadding={indicatorPositionPadding}
           animated={animated}
           autoScroll={autoScroll}
-          activeIndex={this.activeIndex}
+          activeIndex={this.state.activeIndex}
           onChange={index => this.onSegmentedBarChange(index)}
         >
           {this.sheets.map((item, index) => (
@@ -129,7 +118,7 @@ export default class SegmentedView extends Component {
               titleStyle={item.props.titleStyle}
               activeTitleStyle={item.props.activeTitleStyle}
               badge={item.props.badge}
-              />
+            />
           ))}
         </SegmentedBar>
       </View>
@@ -138,7 +127,7 @@ export default class SegmentedView extends Component {
 
   renderProjector() {
     return (
-      <Projector style={{flex: 1}} index={this.activeIndex}>
+      <Projector style={{flex: 1}} index={this.state.activeIndex}>
         {this.sheets}
       </Projector>
     );
@@ -149,7 +138,7 @@ export default class SegmentedView extends Component {
       <Carousel
         style={{flex: 1}}
         carousel={false}
-        startIndex={this.activeIndex}
+        startIndex={this.state.activeIndex}
         cycle={false}
         ref='carousel'
         onChange={index => this.onCarouselChange(index)}
