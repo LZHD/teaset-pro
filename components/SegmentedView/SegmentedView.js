@@ -16,6 +16,7 @@ export default class SegmentedView extends Component {
 
   static propTypes = {
     ...ViewPropTypes,
+    ...SegmentedSheet.propTypes,
     type: PropTypes.oneOf(['projector', 'carousel']),
     barPosition: PropTypes.oneOf(['top', 'bottom']),
     //SegmentedBar
