@@ -35,7 +35,6 @@ import Menu from './components/Menu/Menu';
 import Drawer from './components/Drawer/Drawer';
 import ModalIndicator from './components/ModalIndicator/ModalIndicator';
 
-import TeaNavigator from './components/TeaNavigator/TeaNavigator';
 import BasePage from './components/BasePage/BasePage';
 import NavigationPage from './components/NavigationPage/NavigationPage';
 
@@ -78,7 +77,6 @@ var Teaset = {
   Drawer,
   ModalIndicator,
 
-  TeaNavigator,
   BasePage,
   NavigationPage,
 

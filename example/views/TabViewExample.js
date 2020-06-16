@@ -5,13 +5,12 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, ScrollView, Image, Switch, Platform} from 'react-native';
 
-import {Theme, TeaNavigator, NavigationPage, BasePage, ListRow, TabView, Label, PullPicker, SelectRow} from 'teaset-pro';
+import {NavigationPage, BasePage, ListRow, TabView, Label, PullPicker, SelectRow} from 'teaset-pro';
 
 export default class TabViewExample extends BasePage {
 
   static defaultProps = {
     ...BasePage.defaultProps,
-    scene: TeaNavigator.SceneConfigs.PushFromRight,
   };
 
   constructor(props) {
