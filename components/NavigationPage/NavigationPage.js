@@ -1,32 +1,28 @@
-// NavigationPage.js
-
-'use strict';
-
-import React, {Component} from 'react';
+import React from 'react';
+import { View, Dimensions } from 'react-native';
 import PropTypes from 'prop-types';
-import {Platform, View, Dimensions} from 'react-native';
-
 import Theme from '../../themes/Theme';
-import TeaNavigator from '../TeaNavigator/TeaNavigator';
 import BasePage from '../BasePage/BasePage';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import KeyboardSpace from '../KeyboardSpace/KeyboardSpace';
 
 export default class NavigationPage extends BasePage {
-
   static propTypes = {
     ...BasePage.propTypes,
     title: PropTypes.string,
     showBackButton: PropTypes.bool,
     navigationBarInsets: PropTypes.bool,
+    navigationBarOptions: PropTypes.shape({ ...NavigationBar.propTypes }),
   };
 
   static defaultProps = {
     ...BasePage.defaultProps,
-    scene: TeaNavigator.SceneConfigs.PushFromRight,
     title: null,
     showBackButton: false,
     navigationBarInsets: true,
+    navigationBarOptions: {
+      ...NavigationBar.defaultProps,
+    },
   };
 
   constructor(props) {
@@ -35,8 +31,8 @@ export default class NavigationPage extends BasePage {
   }
 
   onLayout(e) {
-    let {width} = Dimensions.get('window');
-    if (width != this.screenWidth) {
+    const { width } = Dimensions.get('window');
+    if (width !== this.screenWidth) {
       this.screenWidth = width;
       this.forceUpdate();
     }
@@ -48,11 +44,13 @@ export default class NavigationPage extends BasePage {
   }
 
   renderNavigationLeftView() {
-    if (!this.props.showBackButton) return null;
+    if (!this.props.showBackButton) {
+      return null;
+    }
     return (
-      <NavigationBar.BackButton
-        title={Theme.backButtonTitle}
-        onPress={() => this.navigator.pop()}
+        <NavigationBar.BackButton
+            title={Theme.backButtonTitle}
+            onPress={() => this.navigation.goBack()}
         />
     );
   }
@@ -62,12 +60,19 @@ export default class NavigationPage extends BasePage {
   }
 
   renderNavigationBar() {
+    const {
+      title,
+      leftView,
+      rightView,
+      ...others
+    } = this.props.navigationBarOptions;
     return (
       <NavigationBar
-        title={this.renderNavigationTitle()}
-        leftView={this.renderNavigationLeftView()}
-        rightView={this.renderNavigationRightView()}
-        />
+          title={this.renderNavigationTitle()}
+          leftView={this.renderNavigationLeftView()}
+          rightView={this.renderNavigationRightView()}
+          {...others}
+      />
     );
   }
 
@@ -76,30 +81,43 @@ export default class NavigationPage extends BasePage {
   }
 
   render() {
-    let {style, children, scene, autoKeyboardInsets, keyboardTopInsets, title, showBackButton, navigationBarInsets, ...others} = this.props;
+    const {
+      style,
+      children,
+      scene,
+      autoKeyboardInsets,
+      keyboardTopInsets,
+      title,
+      showBackButton,
+      navigationBarInsets,
+      ...others
+    } = this.props;
 
-    let {left: paddingLeft, right: paddingRight} = Theme.screenInset;
-    let pageContainerStyle = [{
-      flex: 1,
-      paddingLeft,
-      paddingRight,
-      marginTop: navigationBarInsets ? (Theme.navBarContentHeight + Theme.statusBarHeight) : 0,
-    }];
+    const { left: paddingLeft, right: paddingRight } = Theme.screenInset;
+    const pageContainerStyle = [
+      {
+        flex: 1,
+        paddingLeft,
+        paddingRight,
+        marginTop: navigationBarInsets
+          ? Theme.navBarContentHeight + Theme.statusBarHeight
+          : 0,
+      },
+    ];
 
     return (
-      <View style={this.buildStyle()} onLayout={e => this.onLayout(e)} {...others}>
-        <View style={{flex: 1}} >
-          <View style={pageContainerStyle}>
-            {this.renderPage()}
+        <View
+            style={this.buildStyle()}
+            onLayout={e => this.onLayout(e)}
+            {...others}>
+          <View style={{ flex: 1 }}>
+            <View style={pageContainerStyle}>{this.renderPage()}</View>
+            {this.renderNavigationBar()}
           </View>
-          {this.renderNavigationBar()}
+          {autoKeyboardInsets ? (
+              <KeyboardSpace topInsets={keyboardTopInsets} />
+          ) : null}
         </View>
-        {autoKeyboardInsets ? <KeyboardSpace topInsets={keyboardTopInsets} /> : null}
-      </View>
     );
   }
-
-
 }
-
-

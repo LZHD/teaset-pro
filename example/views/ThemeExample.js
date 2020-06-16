@@ -22,7 +22,7 @@ export default class ThemeExample extends NavigationPage {
       -1,
       (item, index) => {
         Theme.set(Theme.themes[item]);
-        this.navigator.popToTop();
+        this.navigation.popToTop();
       }
     );
   }

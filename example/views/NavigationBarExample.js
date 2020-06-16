@@ -79,7 +79,7 @@ export default class NavigationBarExample extends NavigationPage {
         return (
           <NavigationBar.BackButton
             title={Theme.backButtonTitle}
-            onPress={() => this.navigator.pop()}
+            onPress={() => this.navigation.goBack()}
             />
         );
       case 'Link button':
