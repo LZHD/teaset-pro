@@ -159,7 +159,7 @@ export default class Home extends NavigationPage {
         <ListRow
           title="ModalIndicator"
           detail="模态指示器"
-          onPress={() => this.navigation.navigate('ModalIndicatorExample')}
+          onPress={() => this.navigation.navigate('ModalIndicator')}
         />
         <View style={{ height: Theme.screenInset.bottom }} />
       </ScrollView>
