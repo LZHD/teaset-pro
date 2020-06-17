@@ -96,6 +96,12 @@ export default class SegmentedViewExample extends NavigationPage {
           detail={<Switch value={this.state.custom} onValueChange={value => this.setState({custom: value})} />}
           bottomSeparator='full'
           />
+        <SelectRow
+          title='activeIndex'
+          value={this.state.activeIndex}
+          items={[0, 1, 2]}
+          onSelected={(item, index) => this.setState({activeIndex: item})}
+        />
         <View style={{height: Theme.screenInset.bottom}} />
       </View>
     );
