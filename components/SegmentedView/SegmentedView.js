@@ -16,7 +16,6 @@ export default class SegmentedView extends Component {
 
   static propTypes = {
     ...ViewPropTypes,
-    ...SegmentedSheet.propTypes,
     type: PropTypes.oneOf(['projector', 'carousel']),
     barPosition: PropTypes.oneOf(['top', 'bottom']),
     //SegmentedBar
@@ -49,6 +48,13 @@ export default class SegmentedView extends Component {
     this.segmentedBar = null;
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.activeIndex !== this.props.activeIndex) {
+      this.onSegmentedBarChange(this.props.activeIndex);
+      this.onCarouselChange(this.props.activeIndex);
+    }
+  }
+
 
   get sheets() {
     let {children} = this.props;
@@ -70,7 +76,7 @@ export default class SegmentedView extends Component {
   }
 
   onSegmentedBarChange(index) {
-    if (index === this.activeIndex) return;
+    if (index === this.state.activeIndex) return;
     this.setState({activeIndex: index}, () => {
       if (this.refs.carousel) {
         this.refs.carousel.scrollToPage(index, false);
