@@ -18,7 +18,7 @@ export default class NavigationPage extends BasePage {
   static defaultProps = {
     ...BasePage.defaultProps,
     title: null,
-    showBackButton: false,
+    showBackButton: true,
     navigationBarInsets: true,
     navigationBarOptions: {
       ...NavigationBar.defaultProps,

@@ -10,6 +10,7 @@ export default class Home extends NavigationPage {
   static defaultProps = {
     ...NavigationPage.defaultProps,
     title: 'Teaset Example',
+    showBackButton: false,
   };
 
   renderPage() {

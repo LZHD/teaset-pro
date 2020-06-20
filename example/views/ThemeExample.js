@@ -22,7 +22,10 @@ export default class ThemeExample extends NavigationPage {
       -1,
       (item, index) => {
         Theme.set(Theme.themes[item]);
-        this.navigation.popToTop();
+        this.navigation.reset({
+            index: 0,
+            routes: [{ name: 'Home' }],
+        });
       }
     );
   }
