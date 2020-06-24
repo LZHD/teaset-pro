@@ -41,7 +41,7 @@ export default class BasePage extends Component {
     const navigation = this.context;
     if (!navigation) {
       console.error(
-          'The root component is NOT NavigationContainer, then you can not use BasePage.navigation.',
+          'No import @react-navigation/native>=5.0.0, then you can not use BasePage.navigation.',
       );
       return null;
     }
@@ -69,7 +69,6 @@ export default class BasePage extends Component {
     const {
       style,
       children,
-      scene,
       autoKeyboardInsets,
       keyboardTopInsets,
       ...others

@@ -84,7 +84,6 @@ export default class NavigationPage extends BasePage {
     const {
       style,
       children,
-      scene,
       autoKeyboardInsets,
       keyboardTopInsets,
       title,
@@ -106,18 +105,18 @@ export default class NavigationPage extends BasePage {
     ];
 
     return (
-        <View
-            style={this.buildStyle()}
-            onLayout={e => this.onLayout(e)}
-            {...others}>
-          <View style={{ flex: 1 }}>
-            <View style={pageContainerStyle}>{this.renderPage()}</View>
-            {this.renderNavigationBar()}
-          </View>
-          {autoKeyboardInsets ? (
-              <KeyboardSpace topInsets={keyboardTopInsets} />
-          ) : null}
+      <View
+          style={this.buildStyle()}
+          onLayout={e => this.onLayout(e)}
+          {...others}>
+        <View style={{ flex: 1 }}>
+          <View style={pageContainerStyle}>{this.renderPage()}</View>
+          {this.renderNavigationBar()}
         </View>
+        {autoKeyboardInsets ? (
+            <KeyboardSpace topInsets={keyboardTopInsets} />
+        ) : null}
+      </View>
     );
   }
 }
