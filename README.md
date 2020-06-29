@@ -119,6 +119,7 @@ The document is being written, please refer to the example source code.
 ![](screenshots/15-Overlay1.png) ![](screenshots/15-Overlay2.png)
 ![](screenshots/15-Overlay3.png) ![](screenshots/15-Overlay6.png)
 ![](screenshots/15-Overlay4.png) ![](screenshots/15-Overlay5.png)
+![](screenshots/15-Overlay7.png) ![](screenshots/15-Overlay8.png)
 
 ## Toast
 ![](screenshots/16-Toast1.png) ![](screenshots/16-Toast2.png)
