@@ -8,7 +8,7 @@ import ThemeDefault from './ThemeDefault';
 import ThemeBlack from './ThemeBlack';
 import ThemeViolet from './ThemeViolet';
 
-// See https://mydevice.io/devices/ for device dimensions
+// See https://www.mydevice.io/ for device dimensions
 const X_WIDTH = 375;
 const X_HEIGHT = 812;
 const XSMAX_WIDTH = 414;
@@ -99,4 +99,4 @@ const Theme = {
 
 Theme.set(ThemeDefault);
 
-module.exports = Theme;
+export default Theme;
