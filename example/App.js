@@ -1,7 +1,10 @@
 import 'react-native-gesture-handler';
 import React, { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+} from '@react-navigation/stack';
 
 import ThemeExample from './views/ThemeExample';
 import LabelExample from './views/LabelExample';
@@ -39,7 +42,11 @@ export default class App extends Component {
   render() {
     return (
       <NavigationContainer>
-        <RouteStack.Navigator headerMode="none">
+        <RouteStack.Navigator
+          headerMode="none"
+          screenOptions={{
+            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          }}>
           <RouteStack.Screen name="Home" component={Home} />
           <RouteStack.Screen name="Theme" component={ThemeExample} />
           <RouteStack.Screen name="Label" component={LabelExample} />
