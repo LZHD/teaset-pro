@@ -5,9 +5,7 @@
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import {StyleSheet, View, Image, Animated, ViewPropTypes} from 'react-native';
-import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
 
-import Theme from '../../themes/Theme';
 import TransformView from '../TransformView/TransformView';
 import CarouselControl from '../Carousel/CarouselControl';
 
@@ -87,7 +85,7 @@ export default class AlbumView extends Component {
 
   getImageSize(source, success, failure) {
     if (typeof source === 'number') {
-      let {width, height} = resolveAssetSource(source);
+      let {width, height} = Image.resolveAssetSource(source);
       success && success(width, height);
     } else if (source && typeof source === 'object' && source.uri) {
       Image.getSize(source.uri,

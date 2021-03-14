@@ -3,9 +3,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import {Platform, TouchableWithoutFeedback, Animated, ViewPropTypes} from 'react-native';
-import Easing from 'react-native/Libraries/Animated/src/Easing';
-import flattenStyle from 'react-native/Libraries/StyleSheet/flattenStyle';
+import {Platform, TouchableWithoutFeedback, Animated, ViewPropTypes, Easing, StyleSheet} from 'react-native';
 
 if (Platform.constants.reactNativeVersion.major === 0 && Platform.constants.reactNativeVersion.minor < 62) {
   console.error('this teaset edition need react native 0.62.0 or above, please use teaset@0.7.1 in earlier version of react native');
@@ -144,7 +142,7 @@ export default class TouchableOpacity extends Component {
   }
 
   _getChildStyleOpacityWithDefault() {
-    const opacity = flattenStyle(this.props.style)?.opacity;
+    const opacity = StyleSheet.flatten(this.props.style)?.opacity;
     return typeof opacity === 'number' ? opacity : 1;
   }
 
