@@ -1,3 +1,10 @@
+/**
+ * Metro configuration for React Native
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+
 // metro.config.js
 //
 // with multiple workarounds for this issue with symlinks:
@@ -15,6 +22,14 @@
 const path = require('path')
 
 module.exports = {
+  transformer: {
+    getTransformOptions: async () => ({
+      transform: {
+        experimentalImportSupport: false,
+        inlineRequires: true,
+      },
+    }),
+  },
   // workaround for an issue with symlinks encountered starting with
   // metro@0.55 / React Native 0.61
   // (not needed with React Native 0.60 / metro@0.54)
