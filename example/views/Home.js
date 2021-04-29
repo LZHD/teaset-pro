@@ -1,7 +1,3 @@
-// Home.js
-
-'use strict';
-
 import React from 'react';
 import { View, ScrollView } from 'react-native';
 import { Theme, NavigationPage, ListRow } from 'teaset-pro';

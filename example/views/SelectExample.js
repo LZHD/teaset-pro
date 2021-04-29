@@ -1,24 +1,17 @@
-// SelectExample.js
-
-'use strict';
-
-import React, {Component} from 'react';
-import {View, Text, Image, ScrollView} from 'react-native';
-
-import {NavigationPage, ListRow, Select, Label} from 'teaset-pro';
+import React from 'react';
+import { View, Text, Image, ScrollView } from 'react-native';
+import { NavigationPage, ListRow, Select } from 'teaset-pro';
 
 export default class SelectExample extends NavigationPage {
-
   static defaultProps = {
     ...NavigationPage.defaultProps,
     title: 'Select',
-    showBackButton: true,
   };
 
   constructor(props) {
     super(props);
     this.items = [
-      'Aged Pu\'er',
+      "Aged Pu'er",
       'Bohea',
       'Chrysanthemum',
       'Hyson',
@@ -32,11 +25,18 @@ export default class SelectExample extends NavigationPage {
       {
         text: 'Long long long long long long long',
         value: 1,
-      }, {
+      },
+      {
         text: 'Short',
         value: 2,
-      }, {
-        text: <Image style={{width: 40, height: 40}} source={require('../images/teaset1_s.jpg')} />,
+      },
+      {
+        text: (
+          <Image
+            style={{ width: 40, height: 40 }}
+            source={require('../images/teaset1_s.jpg')}
+          />
+        ),
         value: 3,
       },
     ];
@@ -54,134 +54,167 @@ export default class SelectExample extends NavigationPage {
   }
 
   renderPage() {
-    let {valueSM, valueMD, valueLG, valueAuto, valuePull, valuePopover, valueReadonly, valueDisable, valueCustom} = this.state;
+    let {
+      valueSM,
+      valueMD,
+      valueLG,
+      valueAuto,
+      valuePull,
+      valuePopover,
+      valueReadonly,
+      valueDisable,
+      valueCustom,
+    } = this.state;
     return (
-      <ScrollView style={{flex: 1}}>
-        <View style={{height: 20}} />
+      <ScrollView style={{ flex: 1 }}>
+        <View style={{ height: 20 }} />
         <ListRow
-          title='Size sm'
+          title="Size sm"
           detail={
             <Select
-              style={{width: 200}}
-              size='sm'
+              style={{ width: 200 }}
+              size="sm"
               value={valueSM}
               items={this.items}
-              placeholder='Select item'
-              pickerTitle='Size sm'
-              onSelected={(item, index) => this.setState({valueSM: item})}
-              />
-          } topSeparator='full' />
+              placeholder="Select item"
+              pickerTitle="Size sm"
+              onSelected={item => this.setState({ valueSM: item })}
+            />
+          }
+          topSeparator="full"
+        />
         <ListRow
-          title='Size md'
+          title="Size md"
           detail={
             <Select
-              style={{width: 200}}
-              size='md'
+              style={{ width: 200 }}
+              size="md"
               value={valueMD}
               items={this.items}
-              placeholder='Select item'
-              pickerTitle='Size md'
-              onSelected={(item, index) => this.setState({valueMD: item})}
-              />
-          } />
+              placeholder="Select item"
+              pickerTitle="Size md"
+              onSelected={item => this.setState({ valueMD: item })}
+            />
+          }
+        />
         <ListRow
-          title='Size lg'
+          title="Size lg"
           detail={
             <Select
-              style={{width: 200}}
-              size='lg'
+              style={{ width: 200 }}
+              size="lg"
               value={valueLG}
               items={this.items}
-              placeholder='Select item'
-              pickerTitle='Size lg'
-              onSelected={(item, index) => this.setState({valueLG: item})}
-              />
-          } bottomSeparator='full' />
-        <View style={{height: 20}} />
+              placeholder="Select item"
+              pickerTitle="Size lg"
+              onSelected={item => this.setState({ valueLG: item })}
+            />
+          }
+          bottomSeparator="full"
+        />
+        <View style={{ height: 20 }} />
         <ListRow
-          title='PickerType auto'
+          title="PickerType auto"
           detail={
             <Select
-              style={{width: 200}}
-              size='md'
+              style={{ width: 200 }}
+              size="md"
               value={valueAuto}
               items={this.items}
-              placeholder='Select item'
-              pickerType='auto'
-              pickerTitle='PickerType auto'
-              onSelected={(item, index) => this.setState({valueAuto: item})}
-              />
-          } />
+              placeholder="Select item"
+              pickerType="auto"
+              pickerTitle="PickerType auto"
+              onSelected={item => this.setState({ valueAuto: item })}
+            />
+          }
+        />
         <ListRow
-          title='PickerType pull'
+          title="PickerType pull"
           detail={
             <Select
-              style={{width: 200}}
-              size='md'
+              style={{ width: 200 }}
+              size="md"
               value={valuePull}
               items={this.items}
-              placeholder='Select item'
-              pickerType='pull'
-              pickerTitle='PickerType pull'
-              onSelected={(item, index) => this.setState({valuePull: item})}
-              />
-          } />
+              placeholder="Select item"
+              pickerType="pull"
+              pickerTitle="PickerType pull"
+              onSelected={item => this.setState({ valuePull: item })}
+            />
+          }
+        />
         <ListRow
-          title='PickerType popover'
+          title="PickerType popover"
           detail={
             <Select
-              style={{width: 200}}
-              size='md'
+              style={{ width: 200 }}
+              size="md"
               value={valuePopover}
               items={this.items}
-              placeholder='Select item'
-              pickerType='popover'
-              pickerTitle='PickerType popover'
-              onSelected={(item, index) => this.setState({valuePopover: item})}
-              />
-          } />
-        <View style={{height: 20}} />
+              placeholder="Select item"
+              pickerType="popover"
+              pickerTitle="PickerType popover"
+              onSelected={item => this.setState({ valuePopover: item })}
+            />
+          }
+        />
+        <View style={{ height: 20 }} />
         <ListRow
-          title='Readonly'
+          title="Readonly"
           detail={
             <Select
-              style={{width: 200}}
-              placeholder='Select item'
+              style={{ width: 200 }}
+              placeholder="Select item"
               editable={false}
               value={valueReadonly}
-              />
-          } topSeparator='full' />
+            />
+          }
+          topSeparator="full"
+        />
         <ListRow
-          title='Disabled'
+          title="Disabled"
           detail={
             <Select
-              style={{width: 200}}
+              style={{ width: 200 }}
               items={this.items}
-              placeholder='Select item'
+              placeholder="Select item"
               disabled={true}
               value={valueDisable}
-              />
-          } bottomSeparator='full' />
-        <View style={{height: 20}} />
+            />
+          }
+          bottomSeparator="full"
+        />
+        <View style={{ height: 20 }} />
         <ListRow
-          title='Custom'
+          title="Custom"
           detail={
             <Select
-              style={{width: 200, backgroundColor: '#rgba(238, 169, 91, 0.1)', borderColor: '#8a6d3b'}}
-              size='lg'
+              style={{
+                width: 200,
+                backgroundColor: '#rgba(238, 169, 91, 0.1)',
+                borderColor: '#8a6d3b',
+              }}
+              size="lg"
               value={valueCustom}
-              valueStyle={{flex: 1, color: '#8a6d3b', textAlign: 'right'}}
+              valueStyle={{ flex: 1, color: '#8a6d3b', textAlign: 'right' }}
               items={this.customItems}
-              getItemValue={(item, index) => item.value}
-              getItemText={(item, index) => item.text}
-              icon={<Text style={{color: '#8a6d3b', fontSize: 16, paddingRight: 4}}>▼</Text>}
-              placeholder='Select item'
-              pickerTitle='Custom'
-              onSelected={(item, index) => this.setState({valueCustom: item.value})}
-              />
-          } topSeparator='full' bottomSeparator='full' />
+              getItemValue={item => item.value}
+              getItemText={item => item.text}
+              icon={
+                <Text
+                  style={{ color: '#8a6d3b', fontSize: 16, paddingRight: 4 }}>
+                  ▼
+                </Text>
+              }
+              placeholder="Select item"
+              pickerTitle="Custom"
+              onSelected={item => this.setState({ valueCustom: item.value })}
+            />
+          }
+          topSeparator="full"
+          bottomSeparator="full"
+        />
       </ScrollView>
     );
   }
-
 }

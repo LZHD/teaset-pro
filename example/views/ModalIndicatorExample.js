@@ -1,18 +1,11 @@
-// ModalIndicatorExample.js
-
-'use strict';
-
-import React, {Component} from 'react';
-import {View, ScrollView} from 'react-native';
-
-import {NavigationPage, ListRow, ModalIndicator} from 'teaset-pro';
+import React from 'react';
+import { View, ScrollView } from 'react-native';
+import { NavigationPage, ListRow, ModalIndicator } from 'teaset-pro';
 
 export default class ModalIndicatorExample extends NavigationPage {
-
   static defaultProps = {
     ...NavigationPage.defaultProps,
     title: 'ModalIndicator',
-    showBackButton: true,
   };
 
   show() {
@@ -29,13 +22,16 @@ export default class ModalIndicatorExample extends NavigationPage {
   }
 
   renderPage() {
-    let img = require('../images/faircup.jpg');
     return (
-      <ScrollView style={{flex: 1}}>
-        <View style={{height: 20}} />
-        <ListRow title='Show' onPress={() => this.show()} topSeparator='full' bottomSeparator='full' />
+      <ScrollView style={{ flex: 1 }}>
+        <View style={{ height: 20 }} />
+        <ListRow
+          title="Show"
+          onPress={() => this.show()}
+          topSeparator="full"
+          bottomSeparator="full"
+        />
       </ScrollView>
     );
   }
-
 }
