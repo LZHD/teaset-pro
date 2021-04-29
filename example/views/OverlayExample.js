@@ -1,18 +1,26 @@
-// OverlayExample.js
-
-'use strict';
-
-import React, {Component} from 'react';
-import {View, Image, ScrollView, TouchableWithoutFeedback, Dimensions} from 'react-native';
-
-import {Theme, NavigationPage, ListRow, Overlay, Label, Button, Checkbox, Toast, Alert } from 'teaset-pro';
+import React from 'react';
+import {
+  View,
+  Image,
+  ScrollView,
+  TouchableWithoutFeedback,
+} from 'react-native';
+import {
+  Theme,
+  NavigationPage,
+  ListRow,
+  Overlay,
+  Label,
+  Button,
+  Checkbox,
+  Toast,
+  Alert,
+} from 'teaset-pro';
 
 export default class OverlayExample extends NavigationPage {
-
   static defaultProps = {
     ...NavigationPage.defaultProps,
     title: 'Overlay',
-    showBackButton: true,
   };
 
   constructor(props) {
@@ -27,15 +35,25 @@ export default class OverlayExample extends NavigationPage {
   showDefault(transparent, modal, text) {
     let overlayView = (
       <Overlay.View
-        style={{alignItems: 'center', justifyContent: 'center'}}
+        style={{ alignItems: 'center', justifyContent: 'center' }}
         modal={modal}
         overlayOpacity={transparent ? 0 : null}
-        ref={v => this.overlayView = v}
-        >
-        <View style={{backgroundColor: transparent ? '#333' : Theme.defaultColor, padding: 40, borderRadius: 15, alignItems: 'center'}}>
-          <Label type='danger' size='xl' text={text} />
-          {modal ? <View style={{height: 20}} /> : null}
-          {modal ? <Button title='Close' onPress={() => this.overlayView && this.overlayView.close()} /> : null}
+        ref={v => (this.overlayView = v)}>
+        <View
+          style={{
+            backgroundColor: transparent ? '#333' : Theme.defaultColor,
+            padding: 40,
+            borderRadius: 15,
+            alignItems: 'center',
+          }}>
+          <Label type="danger" size="xl" text={text} />
+          {modal ? <View style={{ height: 20 }} /> : null}
+          {modal ? (
+            <Button
+              title="Close"
+              onPress={() => this.overlayView && this.overlayView.close()}
+            />
+          ) : null}
         </View>
       </Overlay.View>
     );
@@ -45,15 +63,27 @@ export default class OverlayExample extends NavigationPage {
   showPop(type, modal, text) {
     let overlayView = (
       <Overlay.PopView
-        style={{alignItems: 'center', justifyContent: 'center'}}
+        style={{ alignItems: 'center', justifyContent: 'center' }}
         type={type}
         modal={modal}
-        ref={v => this.overlayPopView = v}
-        >
-        <View style={{backgroundColor: Theme.defaultColor, minWidth: 260, minHeight: 180, borderRadius: 15, justifyContent: 'center', alignItems: 'center'}}>
-          <Label type='title' size='xl' text={text} />
-          {modal ? <View style={{height: 60}} /> : null}
-          {modal ? <Button title='Close' onPress={() => this.overlayPopView && this.overlayPopView.close()} /> : null}
+        ref={v => (this.overlayPopView = v)}>
+        <View
+          style={{
+            backgroundColor: Theme.defaultColor,
+            minWidth: 260,
+            minHeight: 180,
+            borderRadius: 15,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Label type="title" size="xl" text={text} />
+          {modal ? <View style={{ height: 60 }} /> : null}
+          {modal ? (
+            <Button
+              title="Close"
+              onPress={() => this.overlayPopView && this.overlayPopView.close()}
+            />
+          ) : null}
         </View>
       </Overlay.PopView>
     );
@@ -64,14 +94,14 @@ export default class OverlayExample extends NavigationPage {
     fromView.measure((x, y, width, height, pageX, pageY) => {
       let overlayView = (
         <Overlay.PopView
-          style={{alignItems: 'center', justifyContent: 'center'}}
+          style={{ alignItems: 'center', justifyContent: 'center' }}
           overlayOpacity={1}
-          type='custom'
-          customBounds={{x: pageX, y: pageY, width, height}}
-          ref={v => this.customPopView = v}
-          >
-          <TouchableWithoutFeedback onPress={() => this.customPopView && this.customPopView.close()}>
-            <Image source={imageSource} resizeMode='cover' />
+          type="custom"
+          customBounds={{ x: pageX, y: pageY, width, height }}
+          ref={v => (this.customPopView = v)}>
+          <TouchableWithoutFeedback
+            onPress={() => this.customPopView && this.customPopView.close()}>
+            <Image source={imageSource} resizeMode="cover" />
           </TouchableWithoutFeedback>
         </Overlay.PopView>
       );
@@ -81,11 +111,29 @@ export default class OverlayExample extends NavigationPage {
 
   showPull(side, modal, text, rootTransform) {
     let overlayView = (
-      <Overlay.PullView side={side} modal={modal} rootTransform={rootTransform} ref={v => this.overlayPullView = v}>
-        <View style={{backgroundColor: Theme.defaultColor, minWidth: 300, minHeight: 260, justifyContent: 'center', alignItems: 'center'}}>
-          <Label type='title' size='xl' text={text} />
-          {modal ? <View style={{height: 60}} /> : null}
-          {modal ? <Button title='Close' onPress={() => this.overlayPullView && this.overlayPullView.close()} /> : null}
+      <Overlay.PullView
+        side={side}
+        modal={modal}
+        rootTransform={rootTransform}
+        ref={v => (this.overlayPullView = v)}>
+        <View
+          style={{
+            backgroundColor: Theme.defaultColor,
+            minWidth: 300,
+            minHeight: 260,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Label type="title" size="xl" text={text} />
+          {modal ? <View style={{ height: 60 }} /> : null}
+          {modal ? (
+            <Button
+              title="Close"
+              onPress={() =>
+                this.overlayPullView && this.overlayPullView.close()
+              }
+            />
+          ) : null}
         </View>
       </Overlay.PullView>
     );
@@ -93,7 +141,7 @@ export default class OverlayExample extends NavigationPage {
   }
 
   showPopover(view, direction, align) {
-    let {black, shadow, showArrow} = this.state;
+    let { black, shadow, showArrow } = this.state;
     let blackStyle = {
       backgroundColor: 'rgba(0, 0, 0, 0.8)',
       paddingTop: 8,
@@ -107,17 +155,29 @@ export default class OverlayExample extends NavigationPage {
     };
     let shadowStyle = {
       shadowColor: '#777',
-      shadowOffset: {width: 1, height: 1},
+      shadowOffset: { width: 1, height: 1 },
       shadowOpacity: 0.5,
       shadowRadius: 2,
     };
-    let popoverStyle = [].concat(black ? blackStyle : whiteStyle).concat(shadow ? shadowStyle : null);
+    let popoverStyle = []
+      .concat(black ? blackStyle : whiteStyle)
+      .concat(shadow ? shadowStyle : null);
 
     view.measure((x, y, width, height, pageX, pageY) => {
-      let fromBounds = {x: pageX, y: pageY, width, height};
+      let fromBounds = { x: pageX, y: pageY, width, height };
       let overlayView = (
-        <Overlay.PopoverView popoverStyle={popoverStyle} fromBounds={fromBounds} direction={direction} align={align} directionInsets={4} showArrow={showArrow}>
-          <Label style={{color: black ? '#fff' : '#000'}} size='lg' text={direction + ' ' + align} />
+        <Overlay.PopoverView
+          popoverStyle={popoverStyle}
+          fromBounds={fromBounds}
+          direction={direction}
+          align={align}
+          directionInsets={4}
+          showArrow={showArrow}>
+          <Label
+            style={{ color: black ? '#fff' : '#000' }}
+            size="lg"
+            text={direction + ' ' + align}
+          />
         </Overlay.PopoverView>
       );
       Overlay.show(overlayView);
@@ -127,10 +187,20 @@ export default class OverlayExample extends NavigationPage {
   showMulti() {
     let overlayView = (
       <Overlay.PullView modal={false}>
-        <View style={{backgroundColor: Theme.defaultColor, minWidth: 200, minHeight: 260, justifyContent: 'center', alignItems: 'center'}}>
-          <Label type='title' size='xl' text='Overlay' />
-          <View style={{height: 60}} />
-          <Button title='New overlay' onPress={() => this.showDefault(false, true, 'New overlay')} />
+        <View
+          style={{
+            backgroundColor: Theme.defaultColor,
+            minWidth: 200,
+            minHeight: 260,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Label type="title" size="xl" text="Overlay" />
+          <View style={{ height: 60 }} />
+          <Button
+            title="New overlay"
+            onPress={() => this.showDefault(false, true, 'New overlay')}
+          />
         </View>
       </Overlay.PullView>
     );
@@ -140,41 +210,97 @@ export default class OverlayExample extends NavigationPage {
   renderPage() {
     let img = require('../images/faircup.jpg');
     return (
-      <ScrollView style={{flex: 1}}>
-        <View style={{height: 20}} />
-        <ListRow title='Transparent' onPress={() => this.showDefault(true, false, 'Transparent')} topSeparator='full' />
-        <ListRow title='Translucent' onPress={() => this.showDefault(false, false, 'Translucent')} />
-        <ListRow title='Translucent modal' onPress={() => this.showDefault(false, true, 'Translucent modal')} bottomSeparator='full' />
-        <View style={{height: 20}} />
-        <ListRow title='Pull from bottom' onPress={() => this.showPull('bottom', false, 'Pull from bottom')} topSeparator='full' />
-        <ListRow title='Pull from top' onPress={() => this.showPull('top', false, 'Pull from top')} />
-        <ListRow title='Pull from left' onPress={() => this.showPull('left', false, 'Pull from left')} />
-        <ListRow title='Pull from right' onPress={() => this.showPull('right', false, 'Pull from right')} />
-        <ListRow title='Pull modal' onPress={() => this.showPull('bottom', true, 'Pull modal')} />
-        <ListRow title='Pull and scale' onPress={() => this.showPull('bottom', false, 'Pull and scale', 'scale')} />
-        <ListRow title='Pull and translate' onPress={() => this.showPull('left', false, 'Pull and translate', 'translate')} bottomSeparator='full' />
-        <View style={{height: 20}} />
-        <ListRow title='Pop zoom out' onPress={() => this.showPop('zoomOut', false, 'Pop zoom out')} topSeparator='full' />
-        <ListRow title='Pop zoom in' onPress={() => this.showPop('zoomIn', false, 'Pop zoom in')} />
-        <ListRow title='Pop modal' onPress={() => this.showPop('zoomOut', true, 'Pop modal')} />
+      <ScrollView style={{ flex: 1 }}>
+        <View style={{ height: 20 }} />
         <ListRow
-          title='Pop custom'
-          detail={<Image style={{width: 40, height: 40}} source={img} resizeMode='cover' ref={v => this.imgView = v} />}
+          title="Transparent"
+          onPress={() => this.showDefault(true, false, 'Transparent')}
+          topSeparator="full"
+        />
+        <ListRow
+          title="Translucent"
+          onPress={() => this.showDefault(false, false, 'Translucent')}
+        />
+        <ListRow
+          title="Translucent modal"
+          onPress={() => this.showDefault(false, true, 'Translucent modal')}
+          bottomSeparator="full"
+        />
+        <View style={{ height: 20 }} />
+        <ListRow
+          title="Pull from bottom"
+          onPress={() => this.showPull('bottom', false, 'Pull from bottom')}
+          topSeparator="full"
+        />
+        <ListRow
+          title="Pull from top"
+          onPress={() => this.showPull('top', false, 'Pull from top')}
+        />
+        <ListRow
+          title="Pull from left"
+          onPress={() => this.showPull('left', false, 'Pull from left')}
+        />
+        <ListRow
+          title="Pull from right"
+          onPress={() => this.showPull('right', false, 'Pull from right')}
+        />
+        <ListRow
+          title="Pull modal"
+          onPress={() => this.showPull('bottom', true, 'Pull modal')}
+        />
+        <ListRow
+          title="Pull and scale"
+          onPress={() =>
+            this.showPull('bottom', false, 'Pull and scale', 'scale')
+          }
+        />
+        <ListRow
+          title="Pull and translate"
+          onPress={() =>
+            this.showPull('left', false, 'Pull and translate', 'translate')
+          }
+          bottomSeparator="full"
+        />
+        <View style={{ height: 20 }} />
+        <ListRow
+          title="Pop zoom out"
+          onPress={() => this.showPop('zoomOut', false, 'Pop zoom out')}
+          topSeparator="full"
+        />
+        <ListRow
+          title="Pop zoom in"
+          onPress={() => this.showPop('zoomIn', false, 'Pop zoom in')}
+        />
+        <ListRow
+          title="Pop modal"
+          onPress={() => this.showPop('zoomOut', true, 'Pop modal')}
+        />
+        <ListRow
+          title="Pop custom"
+          detail={
+            <Image
+              style={{ width: 40, height: 40 }}
+              source={img}
+              resizeMode="cover"
+              ref={v => (this.imgView = v)}
+            />
+          }
           onPress={() => this.showPopCustom(img, this.imgView)}
-          bottomSeparator='full' />
+          bottomSeparator="full"
+        />
         <ListRow
           title="Alert custom"
           onPress={() => {
             Alert.alert(
-              '测试',
-              '测试内容',
+              'Test title',
+              'Test content',
               {
-                title: '确定',
-                onPress: () => Toast.message('alert'),
+                title: 'confirm',
+                onPress: () => Toast.message('confirm'),
               },
               {
-                title: '取消',
-                onPress: () => Toast.message('alert'),
+                title: 'cancel',
+                onPress: () => Toast.message('cancel'),
               },
             );
           }}
@@ -185,70 +311,176 @@ export default class OverlayExample extends NavigationPage {
             Alert.operation(
               [
                 {
-                  title: '拍照',
-                  onPress: () => Toast.message('alert'),
+                  title: 'Take Pictures',
+                  onPress: () => Toast.message('Take Pictures'),
                 },
                 {
-                  title: '相册',
-                  onPress: () => Toast.message('alert'),
+                  title: 'Photo album',
+                  onPress: () => Toast.message('Photo album'),
                 },
               ],
               {
-                title: '取消',
-                onPress: () => Toast.message('alert'),
+                title: 'cancel',
+                onPress: () => Toast.message('cancel'),
               },
             );
           }}
         />
+        <ListRow title="Alert" onPress={() => Alert.show('Test')} />
+        <View style={{ height: 20 }} />
         <ListRow
-          title="Alert"
-          onPress={() => {
-            Alert.show('测试');
-          }}
-        />
-        <View style={{height: 20}} />
-        <ListRow
-          title='Popover'
-          titlePlace='top'
+          title="Popover"
+          titlePlace="top"
           detail={
             <View>
-              <View style={{paddingTop: 16, paddingBottom: 8, flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Checkbox title='Black' ref='black' checked={this.state.black} onChange={value => this.setState({black: value})} />
-                <Checkbox title='Shadow' ref='shadow' checked={this.state.shadow} onChange={value => this.setState({shadow: value})} />
-                <Checkbox title='Show arrow' ref='showArrow' checked={this.state.showArrow} onChange={value => this.setState({showArrow: value})} />
+              <View
+                style={{
+                  paddingTop: 16,
+                  paddingBottom: 8,
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                }}>
+                <Checkbox
+                  title="Black"
+                  checked={this.state.black}
+                  onChange={value => this.setState({ black: value })}
+                />
+                <Checkbox
+                  title="Shadow"
+                  checked={this.state.shadow}
+                  onChange={value => this.setState({ shadow: value })}
+                />
+                <Checkbox
+                  title="Show arrow"
+                  checked={this.state.showArrow}
+                  onChange={value => this.setState({ showArrow: value })}
+                />
               </View>
 
-              <View style={{paddingTop: 8, flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Button title='down start' ref='downstart' onPress={() => this.showPopover(this.refs['downstart'], 'down', 'start')} />
-                <Button title='down center' ref='downcenter' onPress={() => this.showPopover(this.refs['downcenter'], 'down', 'center')} />
-                <Button title='down end' ref='downend' onPress={() => this.showPopover(this.refs['downend'], 'down', 'end')} />
+              <View
+                style={{
+                  paddingTop: 8,
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                }}>
+                <Button
+                  title="down start"
+                  ref={btn => (this.downStart = btn)}
+                  onPress={() =>
+                    this.showPopover(this.downStart, 'down', 'start')
+                  }
+                />
+                <Button
+                  title="down center"
+                  ref={btn => (this.downCenter = btn)}
+                  onPress={() =>
+                    this.showPopover(this.downCenter, 'down', 'center')
+                  }
+                />
+                <Button
+                  title="down end"
+                  ref={btn => (this.downEnd = btn)}
+                  onPress={() => this.showPopover(this.downEnd, 'down', 'end')}
+                />
               </View>
-              <View style={{paddingTop: 8, flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Button title='right start' ref='rightstart' onPress={() => this.showPopover(this.refs['rightstart'], 'right', 'start')} />
-                <Button title='left start' ref='leftstart' onPress={() => this.showPopover(this.refs['leftstart'], 'left', 'start')} />
+              <View
+                style={{
+                  paddingTop: 8,
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                }}>
+                <Button
+                  title="right start"
+                  ref={btn => (this.rightStart = btn)}
+                  onPress={() =>
+                    this.showPopover(this.rightStart, 'right', 'start')
+                  }
+                />
+                <Button
+                  title="left start"
+                  ref={btn => (this.leftStart = btn)}
+                  onPress={() =>
+                    this.showPopover(this.leftStart, 'left', 'start')
+                  }
+                />
               </View>
-              <View style={{paddingTop: 8, flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Button title='right center' ref='rightcenter' onPress={() => this.showPopover(this.refs['rightcenter'], 'right', 'center')} />
-                <Button title='left center' ref='leftcenter' onPress={() => this.showPopover(this.refs['leftcenter'], 'left', 'center')} />
+              <View
+                style={{
+                  paddingTop: 8,
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                }}>
+                <Button
+                  title="right center"
+                  ref={btn => (this.rightCenter = btn)}
+                  onPress={() =>
+                    this.showPopover(this.rightCenter, 'right', 'center')
+                  }
+                />
+                <Button
+                  title="left center"
+                  ref={btn => (this.leftCenter = btn)}
+                  onPress={() =>
+                    this.showPopover(this.leftCenter, 'left', 'center')
+                  }
+                />
               </View>
-              <View style={{paddingTop: 8, flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Button title='right end' ref='rightend' onPress={() => this.showPopover(this.refs['rightend'], 'right', 'end')} />
-                <Button title='left end' ref='leftend' onPress={() => this.showPopover(this.refs['leftend'], 'left', 'end')} />
+              <View
+                style={{
+                  paddingTop: 8,
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                }}>
+                <Button
+                  title="right end"
+                  ref={btn => (this.rightEnd = btn)}
+                  onPress={() =>
+                    this.showPopover(this.rightEnd, 'right', 'end')
+                  }
+                />
+                <Button
+                  title="left end"
+                  ref={btn => (this.leftEnd = btn)}
+                  onPress={() => this.showPopover(this.leftEnd, 'left', 'end')}
+                />
               </View>
-              <View style={{paddingTop: 8, flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Button title='up start' ref='upstart' onPress={() => this.showPopover(this.refs['upstart'], 'up', 'start')} />
-                <Button title='up center' ref='upcenter' onPress={() => this.showPopover(this.refs['upcenter'], 'up', 'center')} />
-                <Button title='up end' ref='upend' onPress={() => this.showPopover(this.refs['upend'], 'up', 'end')} />
+              <View
+                style={{
+                  paddingTop: 8,
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                }}>
+                <Button
+                  title="up start"
+                  ref={btn => (this.upStart = btn)}
+                  onPress={() => this.showPopover(this.upStart, 'up', 'start')}
+                />
+                <Button
+                  title="up center"
+                  ref={btn => (this.upCenter = btn)}
+                  onPress={() =>
+                    this.showPopover(this.upCenter, 'up', 'center')
+                  }
+                />
+                <Button
+                  title="up end"
+                  ref={btn => (this.upEnd = btn)}
+                  onPress={() => this.showPopover(this.upEnd, 'up', 'end')}
+                />
               </View>
             </View>
           }
-          topSeparator='full'
-          />
-        <View style={{height: 20}} />
-        <ListRow title='Multi overlay' onPress={() => this.showMulti()} topSeparator='full' bottomSeparator='full' />
-        <View style={{height: Theme.screenInset.bottom}} />
+          topSeparator="full"
+        />
+        <View style={{ height: 20 }} />
+        <ListRow
+          title="Multi overlay"
+          onPress={() => this.showMulti()}
+          topSeparator="full"
+          bottomSeparator="full"
+        />
+        <View style={{ height: Theme.screenInset.bottom }} />
       </ScrollView>
     );
   }
-
 }
