@@ -1,19 +1,23 @@
-// Button.js
-
-'use strict';
-
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import Theme from '../../themes/Theme';
 
 export default class Button extends Component {
-
   static propTypes = {
-    type: PropTypes.oneOf(['default', 'primary', 'secondary', 'danger', 'link']),
+    type: PropTypes.oneOf([
+      'default',
+      'primary',
+      'secondary',
+      'danger',
+      'link',
+    ]),
     size: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs']),
-    title: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.number]),
+    title: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.string,
+      PropTypes.number,
+    ]),
     titleStyle: Text.propTypes.style,
   };
 
@@ -23,17 +27,22 @@ export default class Button extends Component {
   };
 
   measureInWindow(callback) {
-    this.refs.touchableOpacity && this.refs.touchableOpacity.measureInWindow(callback);
+    this.touchableOpacity && this.touchableOpacity.measureInWindow(callback);
   }
 
   measure(callback) {
-    this.refs.touchableOpacity && this.refs.touchableOpacity.measure(callback);
+    this.touchableOpacity && this.touchableOpacity.measure(callback);
   }
 
   buildStyle() {
-    let {style, type, size, disabled} = this.props;
+    let { style, type, size, disabled } = this.props;
 
-    let backgroundColor, borderColor, borderWidth, borderRadius, paddingVertical, paddingHorizontal;
+    let backgroundColor,
+      borderColor,
+      borderWidth,
+      borderRadius,
+      paddingVertical,
+      paddingHorizontal;
     switch (type) {
       case 'primary':
         backgroundColor = Theme.btnPrimaryColor;
@@ -83,18 +92,20 @@ export default class Button extends Component {
     }
     borderWidth = Theme.btnBorderWidth;
 
-    style = [{
-      backgroundColor,
-      borderColor,
-      borderWidth,
-      borderRadius,
-      paddingVertical: paddingVertical,
-      paddingHorizontal: paddingHorizontal,
-      overflow: 'hidden',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }].concat(style);
+    style = [
+      {
+        backgroundColor,
+        borderColor,
+        borderWidth,
+        borderRadius,
+        paddingVertical: paddingVertical,
+        paddingHorizontal: paddingHorizontal,
+        overflow: 'hidden',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+    ].concat(style);
     style = StyleSheet.flatten(style);
     if (disabled) {
       style.opacity = Theme.btnDisabledOpacity;
@@ -104,41 +115,85 @@ export default class Button extends Component {
   }
 
   renderTitle() {
-    let {type, size, title, titleStyle, children} = this.props;
+    let { type, size, title, titleStyle, children } = this.props;
 
-    if (!React.isValidElement(title) && (title || title === '' || title === 0)) {
+    if (
+      !React.isValidElement(title) &&
+      (title || title === '' || title === 0)
+    ) {
       let textColor, textFontSize;
       switch (type) {
-        case 'primary': textColor = Theme.btnPrimaryTitleColor; break;
-        case 'secondary': textColor = Theme.btnSecondaryTitleColor; break;
-        case 'danger': textColor = Theme.btnDangerTitleColor; break;
-        case 'link': textColor = Theme.btnLinkTitleColor; break;
-        default: textColor = Theme.btnTitleColor;
+        case 'primary':
+          textColor = Theme.btnPrimaryTitleColor;
+          break;
+        case 'secondary':
+          textColor = Theme.btnSecondaryTitleColor;
+          break;
+        case 'danger':
+          textColor = Theme.btnDangerTitleColor;
+          break;
+        case 'link':
+          textColor = Theme.btnLinkTitleColor;
+          break;
+        default:
+          textColor = Theme.btnTitleColor;
       }
       switch (size) {
-        case 'xl': textFontSize = Theme.btnFontSizeXL; break;
-        case 'lg': textFontSize = Theme.btnFontSizeLG; break;
-        case 'sm': textFontSize = Theme.btnFontSizeSM; break;
-        case 'xs': textFontSize = Theme.btnFontSizeXS; break;
-        default: textFontSize = Theme.btnFontSizeMD;
+        case 'xl':
+          textFontSize = Theme.btnFontSizeXL;
+          break;
+        case 'lg':
+          textFontSize = Theme.btnFontSizeLG;
+          break;
+        case 'sm':
+          textFontSize = Theme.btnFontSizeSM;
+          break;
+        case 'xs':
+          textFontSize = Theme.btnFontSizeXS;
+          break;
+        default:
+          textFontSize = Theme.btnFontSizeMD;
       }
-      titleStyle = [{
-        color: textColor,
-        fontSize: textFontSize,
-        overflow: 'hidden',
-      }].concat(titleStyle);
-      title = <Text style={titleStyle} numberOfLines={1}>{title}</Text>;
+      titleStyle = [
+        {
+          color: textColor,
+          fontSize: textFontSize,
+          overflow: 'hidden',
+        },
+      ].concat(titleStyle);
+      title = (
+        <Text style={titleStyle} numberOfLines={1}>
+          {title}
+        </Text>
+      );
     }
 
     return title ? title : children;
   }
 
   render() {
-    let {style, type, size, title, titleStyle, disabled, activeOpacity, children, ...others} = this.props;
+    let {
+      style,
+      type,
+      size,
+      title,
+      titleStyle,
+      disabled,
+      activeOpacity,
+      children,
+      ...others
+    } = this.props;
     style = this.buildStyle();
-    if (disabled) activeOpacity = style.opacity;
+    if (disabled) {
+      activeOpacity = style.opacity;
+    }
     return (
-      <TouchableOpacity style={style} disabled={disabled} activeOpacity={activeOpacity} {...others} ref='touchableOpacity'>
+      <TouchableOpacity
+        style={style}
+        disabled={disabled}
+        activeOpacity={activeOpacity}
+        {...others}
+        ref={t => (this.touchableOpacity = t)}>
         {this.renderTitle()}
       </TouchableOpacity>
     );

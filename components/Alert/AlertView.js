@@ -10,16 +10,25 @@ export default class AlertView extends Overlay.PopView {
   static propTypes = {
     ...Overlay.PopView.propTypes,
     cancelItem: PropTypes.shape({
-      title: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.number]).isRequired,
+      title: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string,
+        PropTypes.number,
+      ]).isRequired,
       onPress: PropTypes.func,
     }),
     confirmItem: PropTypes.shape({
-      title: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.number]).isRequired,
+      title: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string,
+        PropTypes.number,
+      ]).isRequired,
       onPress: PropTypes.func,
     }),
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
-    message: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-  }
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+      .isRequired,
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  };
 
   disappearCompleted() {
     super.disappearCompleted();
@@ -41,7 +50,14 @@ export default class AlertView extends Overlay.PopView {
   renderTitle() {
     let { title } = this.props;
     if ((title || title === '') && !React.isValidElement(title)) {
-      title = <Label type="title" size="lg" text={title} style={{ textAlign: 'center', paddingVertical: 15 }}/>;
+      title = (
+        <Label
+          type="title"
+          size="lg"
+          text={title}
+          style={{ textAlign: 'center', paddingVertical: 15 }}
+        />
+      );
     }
     return title;
   }
@@ -49,7 +65,9 @@ export default class AlertView extends Overlay.PopView {
   renderMessage() {
     let { message } = this.props;
     if ((message || message === '') && !React.isValidElement(message)) {
-      message = <Label type="detail" size="lg" text={message} numberOfLines={0}/>;
+      message = (
+        <Label type="detail" size="lg" text={message} numberOfLines={0} />
+      );
     }
     return message;
   }
@@ -80,30 +98,31 @@ export default class AlertView extends Overlay.PopView {
           onPress={() => this.onConfirmPress()}
         />
       </View>
-    )
+    );
   }
 
   buildStyle() {
     return super.buildStyle().concat({
       alignItems: 'center',
       justifyContent: 'center',
-    })
+    });
   }
 
   renderContent(content = null) {
     return super.renderContent(
-      <View style={{
-        backgroundColor: Theme.defaultColor,
-        minWidth: 245,
-        borderRadius: 10,
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
+      <View
+        style={{
+          backgroundColor: Theme.defaultColor,
+          minWidth: 245,
+          borderRadius: 10,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
         {this.renderTitle()}
         {this.renderMessage()}
         {this.renderButtons()}
-      </View>
-    )
+      </View>,
+    );
   }
 }
 
@@ -120,5 +139,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
 });
