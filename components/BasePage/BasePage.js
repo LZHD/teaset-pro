@@ -26,9 +26,7 @@ export default class BasePage extends Component {
   }
 
   componentDidMount() {
-    this.focusListener = this.navigation.addListener('focus', () =>
-        this.onDidFocus(),
-    );
+    this.focusListener = this.navigation.addListener('focus', this.onDidFocus);
   }
 
   componentWillUnmount() {
@@ -41,7 +39,7 @@ export default class BasePage extends Component {
     const navigation = this.context;
     if (!navigation) {
       console.error(
-          'No import @react-navigation/native>=5.0.0, then you can not use BasePage.navigation.',
+        'No import @react-navigation/native>=5.0.0, then you can not use BasePage.navigation.',
       );
       return null;
     }
@@ -74,12 +72,10 @@ export default class BasePage extends Component {
       ...others
     } = this.props;
     return (
-        <View style={this.buildStyle()} {...others}>
-          {this.renderPage()}
-          {autoKeyboardInsets ? (
-              <KeyboardSpace topInsets={keyboardTopInsets} />
-          ) : null}
-        </View>
+      <View style={this.buildStyle()} {...others}>
+        {this.renderPage()}
+        {autoKeyboardInsets && <KeyboardSpace topInsets={keyboardTopInsets} />}
+      </View>
     );
   }
 }
