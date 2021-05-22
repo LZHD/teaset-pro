@@ -31,15 +31,13 @@ export { default as Toast } from './components/Toast/Toast';
 export { default as ActionSheet } from './components/ActionSheet/ActionSheet';
 export { default as ActionPopover } from './components/ActionPopover/ActionPopover';
 export { default as PullPicker } from './components/PullPicker/PullPicker';
-export { default as PopoverPicker }  from './components/PopoverPicker/PopoverPicker';
-export { default as Menu }  from './components/Menu/Menu';
+export { default as PopoverPicker } from './components/PopoverPicker/PopoverPicker';
+export { default as Menu } from './components/Menu/Menu';
 export { default as Drawer } from './components/Drawer/Drawer';
 export { default as ModalIndicator } from './components/ModalIndicator/ModalIndicator';
 export { default as Alert } from './components/Alert/Alert';
 
-export { default as BasePage }  from './components/BasePage/BasePage';
-export { default as NavigationPage }  from './components/NavigationPage/NavigationPage';
+export { default as BasePage } from './components/BasePage/BasePage';
+export { default as NavigationPage } from './components/NavigationPage/NavigationPage';
 
-export { default as KeyboardSpace }  from './components/KeyboardSpace/KeyboardSpace';
-
-
+export { default as KeyboardSpace } from './components/KeyboardSpace/KeyboardSpace';
