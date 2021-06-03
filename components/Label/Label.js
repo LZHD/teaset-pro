@@ -1,15 +1,9 @@
-// Label.js
-
-'use strict';
-
-import React, {Component} from "react";
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Text} from 'react-native';
-
+import { Text } from 'react-native';
 import Theme from '../../themes/Theme';
 
 export default class Label extends Component {
-
   static propTypes = {
     ...Text.propTypes,
     type: PropTypes.oneOf(['default', 'title', 'detail', 'danger']),
@@ -25,15 +19,24 @@ export default class Label extends Component {
   };
 
   buildStyle() {
-    let {type, size, style} = this.props;
+    let { type, size, style } = this.props;
 
     let color, fontSize;
     switch (size) {
-      case 'xl': fontSize = Theme.labelFontSizeXL; break;
-      case 'lg': fontSize = Theme.labelFontSizeLG; break;
-      case 'sm': fontSize = Theme.labelFontSizeSM; break;
-      case 'xs': fontSize = Theme.labelFontSizeXS; break;
-      default: fontSize = Theme.labelFontSizeMD;
+      case 'xl':
+        fontSize = Theme.labelFontSizeXL;
+        break;
+      case 'lg':
+        fontSize = Theme.labelFontSizeLG;
+        break;
+      case 'sm':
+        fontSize = Theme.labelFontSizeSM;
+        break;
+      case 'xs':
+        fontSize = Theme.labelFontSizeXS;
+        break;
+      default:
+        fontSize = Theme.labelFontSizeMD;
     }
     switch (type) {
       case 'title':
@@ -51,21 +54,23 @@ export default class Label extends Component {
       default:
         color = Theme.labelTextColor;
     }
-    style = [{
-      backgroundColor: 'rgba(0, 0, 0, 0)',
-      color: color,
-      fontSize: fontSize,
-      overflow: 'hidden',
-    }].concat(style);
+    style = [
+      {
+        backgroundColor: 'rgba(0, 0, 0, 0)',
+        color: color,
+        fontSize: fontSize,
+        overflow: 'hidden',
+      },
+    ].concat(style);
 
     return style;
   }
 
   render() {
-    let {style, type, size, text, children, ...others} = this.props;
+    let { style, type, size, text, children, ...others } = this.props;
     return (
       <Text style={this.buildStyle()} {...others}>
-        {(text || text === '' || text === 0) ? text : children}
+        {text || text === '' || text === 0 ? text : children}
       </Text>
     );
   }

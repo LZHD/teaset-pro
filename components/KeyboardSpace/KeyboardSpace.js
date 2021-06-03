@@ -1,14 +1,15 @@
-// KeyboardSpace.js
 // from https://github.com/Andr3wHur5t/react-native-keyboard-spacer
-
-'use strict';
-
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, Platform, View, Keyboard, LayoutAnimation} from 'react-native';
+import {
+  StyleSheet,
+  Platform,
+  View,
+  Keyboard,
+  LayoutAnimation,
+} from 'react-native';
 
 export default class KeyboardSpace extends Component {
-
   static propTypes = {
     topInsets: PropTypes.number,
   };
@@ -29,11 +30,15 @@ export default class KeyboardSpace extends Component {
   componentDidMount() {
     if (!this.showListener) {
       let name = Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow';
-      this.showListener = Keyboard.addListener(name, e => this.onKeyboardShow(e));
+      this.showListener = Keyboard.addListener(name, e =>
+        this.onKeyboardShow(e),
+      );
     }
     if (!this.hideListener) {
       let name = Platform.OS === 'ios' ? 'keyboardWillHide' : 'keyboardDidHide';
-      this.hideListener = Keyboard.addListener(name, () => this.onKeyboardHide());
+      this.hideListener = Keyboard.addListener(name, () =>
+        this.onKeyboardHide(),
+      );
     }
   }
 
@@ -60,27 +65,32 @@ export default class KeyboardSpace extends Component {
         update: {
           type: LayoutAnimation.Types.spring,
           springDamping: 200,
-        }
+        },
       });
     }
   }
 
   onKeyboardShow(e) {
-    if (!e || !e.endCoordinates || !e.endCoordinates.height) return;
-    let height = e.endCoordinates.height + (this.props.topInsets ? this.props.topInsets : 0);
-    this.setState({keyboardHeight: height});
+    if (!e || !e.endCoordinates || !e.endCoordinates.height) {
+      return;
+    }
+    let height =
+      e.endCoordinates.height +
+      (this.props.topInsets ? this.props.topInsets : 0);
+    this.setState({ keyboardHeight: height });
   }
 
   onKeyboardHide() {
-    this.setState({keyboardHeight: 0});
+    this.setState({ keyboardHeight: 0 });
   }
 
   render() {
     return (
-      <View style={[styles.keyboardSpace, {height: this.state.keyboardHeight}]} />
+      <View
+        style={[styles.keyboardSpace, { height: this.state.keyboardHeight }]}
+      />
     );
   }
-
 }
 
 const styles = StyleSheet.create({
