@@ -1,15 +1,9 @@
-// Input.js
-
-'use strict';
-
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, TextInput} from 'react-native';
-
+import { TextInput } from 'react-native';
 import Theme from '../../themes/Theme';
 
 export default class Input extends Component {
-
   static propTypes = {
     size: PropTypes.oneOf(['lg', 'md', 'sm']),
     disabled: PropTypes.bool,
@@ -22,7 +16,7 @@ export default class Input extends Component {
   };
 
   buildStyle() {
-    let {style, size} = this.props;
+    let { style, size } = this.props;
 
     let borderRadius, fontSize, paddingVertical, paddingHorizontal, height;
     switch (size) {
@@ -47,32 +41,45 @@ export default class Input extends Component {
         paddingHorizontal = Theme.inputPaddingHorizontalMD;
         height = Theme.inputHeightMD;
     }
-    style = [{
-      backgroundColor: Theme.inputColor,
-      color: Theme.inputTextColor,
-      borderColor: Theme.inputBorderColor,
-      borderWidth: Theme.inputBorderWidth,
-      borderRadius: borderRadius,
-      fontSize: fontSize,
-      paddingVertical: paddingVertical,
-      paddingHorizontal: paddingHorizontal,
-      height: height,
-    }].concat(style);
+    style = [
+      {
+        backgroundColor: Theme.inputColor,
+        color: Theme.inputTextColor,
+        borderColor: Theme.inputBorderColor,
+        borderWidth: Theme.inputBorderWidth,
+        borderRadius: borderRadius,
+        fontSize: fontSize,
+        paddingVertical: paddingVertical,
+        paddingHorizontal: paddingHorizontal,
+        height: height,
+      },
+    ].concat(style);
 
     return style;
   }
 
   render() {
-    let {style, size, disabled, placeholderTextColor, pointerEvents, opacity, ...others} = this.props;
+    let {
+      style,
+      size,
+      disabled,
+      placeholderTextColor,
+      pointerEvents,
+      opacity,
+      ...others
+    } = this.props;
     return (
       <TextInput
         style={this.buildStyle()}
-        placeholderTextColor={placeholderTextColor ? placeholderTextColor : Theme.inputPlaceholderTextColor}
+        placeholderTextColor={
+          placeholderTextColor
+            ? placeholderTextColor
+            : Theme.inputPlaceholderTextColor
+        }
         pointerEvents={disabled ? 'none' : pointerEvents}
         opacity={disabled ? Theme.inputDisabledOpacity : opacity}
         {...others}
-        />
+      />
     );
   }
-
 }
