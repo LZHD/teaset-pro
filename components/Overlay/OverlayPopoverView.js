@@ -1,16 +1,10 @@
-// OverlayPopoverView.js
-
-'use strict';
-
-import React, {Component} from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import {View, Dimensions, Platform, StatusBar} from 'react-native';
-
+import { Dimensions, Platform } from 'react-native';
 import OverlayView from './OverlayView';
 import Popover from '../Popover/Popover';
 
 export default class OverlayPopoverView extends OverlayView {
-
   static propTypes = {
     ...OverlayView.propTypes,
     popoverStyle: Popover.propTypes.style,
@@ -49,70 +43,121 @@ export default class OverlayPopoverView extends OverlayView {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    super.componentDidUpdate && super.componentDidUpdate(prevProps, prevState, snapshot);
-    if (JSON.stringify(this.props.fromBounds) !== JSON.stringify(this.state.fromBounds)) {
-      this.setState({fromBounds: this.props.fromBounds});
+    super.componentDidUpdate &&
+      super.componentDidUpdate(prevProps, prevState, snapshot);
+    if (
+      JSON.stringify(this.props.fromBounds) !==
+      JSON.stringify(this.state.fromBounds)
+    ) {
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({ fromBounds: this.props.fromBounds });
     }
   }
 
   updateFromBounds(bounds) {
-    this.setState({fromBounds: bounds});
+    this.setState({ fromBounds: bounds });
   }
 
   onPopoverLayout(e) {
-    if (Platform.OS === 'android' && (this.state.popoverWidth !== null || this.state.popoverHeight != null)) {
+    if (
+      Platform.OS === 'android' &&
+      (this.state.popoverWidth !== null || this.state.popoverHeight != null)
+    ) {
       //android calls many times...
       return;
     }
-    let {width, height} = e.nativeEvent.layout;
-    if (width !== this.state.popoverWidth || height !== this.state.popoverHeight) {
-      this.setState({popoverWidth: width, popoverHeight: height});
+    let { width, height } = e.nativeEvent.layout;
+    if (
+      width !== this.state.popoverWidth ||
+      height !== this.state.popoverHeight
+    ) {
+      this.setState({ popoverWidth: width, popoverHeight: height });
     }
   }
 
   buildPopoverStyle() {
-    let {fromBounds, popoverWidth, popoverHeight} = this.state;
-    let {popoverStyle, direction, autoDirection, directionInsets, align, alignInsets, showArrow, arrow} = this.props;
+    let { fromBounds, popoverWidth, popoverHeight } = this.state;
+    let {
+      popoverStyle,
+      direction,
+      autoDirection,
+      directionInsets,
+      align,
+      alignInsets,
+      showArrow,
+      arrow,
+    } = this.props;
     if (popoverWidth === null || popoverHeight === null) {
-      popoverStyle = [].concat(popoverStyle).concat({position: 'absolute', left: 0, top: 0, opacity: 0});
-      if (!showArrow) arrow = 'none';
-      else {
+      popoverStyle = []
+        .concat(popoverStyle)
+        .concat({ position: 'absolute', left: 0, top: 0, opacity: 0 });
+      if (!showArrow) {
+        arrow = 'none';
+      } else {
         switch (direction) {
-          case 'right': arrow = 'left'; break;
-          case 'left': arrow = 'right'; break;
-          case 'up': arrow = 'bottom'; break;
-          default: arrow = 'top'; break;
+          case 'right':
+            arrow = 'left';
+            break;
+          case 'left':
+            arrow = 'right';
+            break;
+          case 'up':
+            arrow = 'bottom';
+            break;
+          default:
+            arrow = 'top';
+            break;
         }
       }
-      return {popoverStyle, arrow};
+      return { popoverStyle, arrow };
     }
 
     let screenWidth = Dimensions.get('window').width;
     let screenHeight = Dimensions.get('window').height;
-    let {x, y, width, height} = fromBounds ? fromBounds : {};
+    let { x, y, width, height } = fromBounds ? fromBounds : {};
 
-    if (!x && x !== 0) x = screenWidth / 2;
-    if (!y && y !== 0) y = screenHeight / 2;
-    if (!width) width = 0;
-    if (!height) height = 0;
-    if (!directionInsets && directionInsets !== 0) directionInsets = this.defaultDirectionInsets;
-    if (!alignInsets) alignInsets = 0;
+    if (!x && x !== 0) {
+      x = screenWidth / 2;
+    }
+    if (!y && y !== 0) {
+      y = screenHeight / 2;
+    }
+    if (!width) {
+      width = 0;
+    }
+    if (!height) {
+      height = 0;
+    }
+    if (!directionInsets && directionInsets !== 0) {
+      directionInsets = this.defaultDirectionInsets;
+    }
+    if (!alignInsets) {
+      alignInsets = 0;
+    }
 
     //auto direction
     let ph = popoverHeight + directionInsets;
     let pw = popoverWidth + directionInsets;
     switch (direction) {
       case 'right':
-        if (autoDirection && x + width + pw > screenWidth && x >= pw) direction = 'left';
+        if (autoDirection && x + width + pw > screenWidth && x >= pw) {
+          direction = 'left';
+        }
         break;
       case 'left':
-        if (autoDirection && x + width + pw <= screenWidth && x < pw) direction = 'right';
+        if (autoDirection && x + width + pw <= screenWidth && x < pw) {
+          direction = 'right';
+        }
         break;
       case 'up':
-        if (autoDirection && y + height + ph <= screenHeight && y < ph) direction = 'down';
+        if (autoDirection && y + height + ph <= screenHeight && y < ph) {
+          direction = 'down';
+        }
         break;
       default:
-        if (autoDirection && y + height + ph > screenHeight && y >= ph) direction = 'up';
+        if (autoDirection && y + height + ph > screenHeight && y >= ph) {
+          direction = 'up';
+        }
         break;
     }
 
@@ -136,7 +181,7 @@ export default class OverlayPopoverView extends OverlayView {
         arrow = 'top';
         break;
     }
-    if (direction == 'down' || direction == 'up') {
+    if (direction === 'down' || direction === 'up') {
       switch (align) {
         case 'start':
           px = x - alignInsets;
@@ -150,8 +195,7 @@ export default class OverlayPopoverView extends OverlayView {
           arrow += 'Right';
           break;
       }
-    }
-    else if (direction == 'right' || direction == 'left') {
+    } else if (direction === 'right' || direction === 'left') {
       switch (align) {
         case 'end':
           py = y + height - popoverHeight + alignInsets;
@@ -172,19 +216,24 @@ export default class OverlayPopoverView extends OverlayView {
       left: px,
       top: py,
     });
-    if (!showArrow) arrow = 'none';
+    if (!showArrow) {
+      arrow = 'none';
+    }
 
-    return {popoverStyle, arrow};
+    return { popoverStyle, arrow };
   }
 
   renderContent(content = null) {
-    let {paddingCorner, children} = this.props;
-    let {popoverStyle, arrow} = this.buildPopoverStyle();
+    let { paddingCorner, children } = this.props;
+    let { popoverStyle, arrow } = this.buildPopoverStyle();
     return (
-      <Popover style={popoverStyle} arrow={arrow} paddingCorner={paddingCorner} onLayout={(e) => this.onPopoverLayout(e)}>
+      <Popover
+        style={popoverStyle}
+        arrow={arrow}
+        paddingCorner={paddingCorner}
+        onLayout={e => this.onPopoverLayout(e)}>
         {content ? content : children}
       </Popover>
     );
   }
-
 }
