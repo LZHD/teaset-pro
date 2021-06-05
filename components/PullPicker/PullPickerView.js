@@ -1,18 +1,12 @@
-// PullPickerView.js
-
-'use strict';
-
-import React, {Component} from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import {View, ScrollView} from 'react-native';
-
+import { View, ScrollView } from 'react-native';
 import Theme from '../../themes/Theme';
 import Overlay from '../Overlay/Overlay';
 import Label from '../Label/Label';
 import PullPickerItem from './PullPickerItem';
 
 export default class PullPickerView extends Overlay.PullView {
-
   static propTypes = {
     ...Overlay.PullView.propTypes,
     title: PropTypes.string,
@@ -25,56 +19,68 @@ export default class PullPickerView extends Overlay.PullView {
   static Item = PullPickerItem;
 
   onItemPress(itemIndex) {
-    let {items, onSelected} = this.props;
+    let { items, onSelected } = this.props;
     this.close(false);
     onSelected && onSelected(items[itemIndex], itemIndex);
   }
 
   renderContent() {
-    let {title, items, selectedIndex, getItemText} = this.props;
+    let { title, items, selectedIndex, getItemText } = this.props;
 
     let headerRowStyle = {
       backgroundColor: Theme.pupHeaderColor,
       paddingLeft: Theme.pupHeaderPaddingLeft,
       paddingRight: Theme.pupHeaderPaddingRight,
       paddingTop: Theme.pupHeaderPaddingTop,
-      paddingBottom: Theme.pupHeaderPaddingBottom
+      paddingBottom: Theme.pupHeaderPaddingBottom,
     };
     let headerTextStyle = {
       color: Theme.pupHeaderTitleColor,
       fontSize: Theme.pupHeaderFontSize,
       fontWeight: Theme.pupHeaderFontWeight,
-    }
+    };
     let headerSeparatorStyle = {
       backgroundColor: Theme.pupHeaderSeparatorColor,
       height: Theme.pupHeaderSeparatorHeight,
-    }
-    let {left: leftInset, right: rightInset} = Theme.screenInset;
+    };
+    let { left: leftInset, right: rightInset } = Theme.screenInset;
 
     return super.renderContent(
-      <View style={{backgroundColor: Theme.pupColor, maxHeight: Theme.pupMaxHeight, paddingLeft: leftInset, paddingRight: rightInset}}>
-        {!title ? null :
+      <View
+        style={{
+          backgroundColor: Theme.pupColor,
+          maxHeight: Theme.pupMaxHeight,
+          paddingLeft: leftInset,
+          paddingRight: rightInset,
+        }}>
+        {!title ? null : (
           <View style={headerRowStyle}>
             <Label style={headerTextStyle} text={title} />
           </View>
-        }
+        )}
         {!title ? null : <View style={headerSeparatorStyle} />}
-        <ScrollView style={{backgroundColor: Theme.pupColor, flexGrow: 1}}>
-          {items && items.map((item, index) => (
-            <this.constructor.Item
-              key={'item' + index}
-              style={{backgroundColor: Theme.pupItemColor}}
-              title={getItemText ? getItemText(item, index) : item}
-              selected={index === selectedIndex}
-              bottomSeparator={<View style={{backgroundColor: Theme.pupSeparatorColor, height: Theme.rowSeparatorLineWidth}} />}
-              onPress={() => this.onItemPress(index)}
+        <ScrollView style={{ backgroundColor: Theme.pupColor, flexGrow: 1 }}>
+          {items &&
+            items.map((item, index) => (
+              <this.constructor.Item
+                key={'item' + index}
+                style={{ backgroundColor: Theme.pupItemColor }}
+                title={getItemText ? getItemText(item, index) : item}
+                selected={index === selectedIndex}
+                bottomSeparator={
+                  <View
+                    style={{
+                      backgroundColor: Theme.pupSeparatorColor,
+                      height: +Theme.rowSeparatorLineWidth,
+                    }}
+                  />
+                }
+                onPress={() => this.onItemPress(index)}
               />
-          ))}
-          <View style={{height: Theme.screenInset.bottom}} />
+            ))}
+          <View style={{ height: Theme.screenInset.bottom }} />
         </ScrollView>
-      </View>
+      </View>,
     );
   }
-
 }
-

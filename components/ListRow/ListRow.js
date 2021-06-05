@@ -1,29 +1,46 @@
-// ListRow.js
-
-'use strict';
-
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, Text, View, Image} from 'react-native';
-
+import { Text, View, Image } from 'react-native';
 import Theme from '../../themes/Theme';
 import Label from '../Label/Label';
 import SwipeTouchableOpacity from './SwipeTouchableOpacity';
 import SwipeActionButton from './SwipeActionButton';
 
 export default class ListRow extends Component {
-
   static propTypes = {
     ...SwipeTouchableOpacity.propTypes,
-    title: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.number]),
-    detail: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.number]),
+    title: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+    detail: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.string,
+      PropTypes.number,
+    ]),
     titleStyle: Text.propTypes.style,
     detailStyle: Text.propTypes.style,
     detailMultiLine: PropTypes.bool, //是否支持多行内容
-    icon: PropTypes.oneOfType([PropTypes.element, PropTypes.shape({uri: PropTypes.string}), PropTypes.number]),
-    accessory: PropTypes.oneOfType([PropTypes.element, PropTypes.shape({uri: PropTypes.string}), PropTypes.number, PropTypes.oneOf(['none', 'auto', 'empty', 'check', 'indicator'])]),
-    topSeparator: PropTypes.oneOfType([PropTypes.element, PropTypes.oneOf(['none', 'full', 'indent'])]),
-    bottomSeparator: PropTypes.oneOfType([PropTypes.element, PropTypes.oneOf(['none', 'full', 'indent'])]),
+    icon: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.shape({ uri: PropTypes.string }),
+      PropTypes.number,
+    ]),
+    accessory: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.shape({ uri: PropTypes.string }),
+      PropTypes.number,
+      PropTypes.oneOf(['none', 'auto', 'empty', 'check', 'indicator']),
+    ]),
+    topSeparator: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.oneOf(['none', 'full', 'indent']),
+    ]),
+    bottomSeparator: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.oneOf(['none', 'full', 'indent']),
+    ]),
     titlePlace: PropTypes.oneOf(['none', 'left', 'top']),
     swipeActions: PropTypes.arrayOf(PropTypes.element),
   };
@@ -44,35 +61,38 @@ export default class ListRow extends Component {
     this.state = {
       swipeSts: 'none',
       swipeWidth: 0,
-    }
+    };
+    this.containerView = null;
   }
 
   measureInWindow(callback) {
-    this.refs.containerView && this.refs.containerView.measureInWindow(callback);
+    this.containerView && this.containerView.measureInWindow(callback);
   }
 
   measure(callback) {
-    this.refs.containerView && this.refs.containerView.measure(callback);
+    this.containerView && this.containerView.measure(callback);
   }
 
   closeSwipeActions() {
-    this.refs.containerView && this.refs.containerView.timingClose();
+    this.containerView && this.containerView.timingClose();
   }
 
   buildStyle() {
-    let {style} = this.props;
+    let { style } = this.props;
 
-    style = [{
-      backgroundColor: Theme.rowColor,
-      paddingLeft: Theme.rowPaddingLeft,
-      paddingRight: Theme.rowPaddingRight,
-      paddingTop: Theme.rowPaddingTop,
-      paddingBottom: Theme.rowPaddingBottom,
-      minHeight: Theme.rowMinHeight,
-      overflow: 'hidden',
-      flexDirection: 'row',
-      alignItems: 'center',
-    }].concat(style);
+    style = [
+      {
+        backgroundColor: Theme.rowColor,
+        paddingLeft: Theme.rowPaddingLeft,
+        paddingRight: Theme.rowPaddingRight,
+        paddingTop: Theme.rowPaddingTop,
+        paddingBottom: Theme.rowPaddingBottom,
+        minHeight: Theme.rowMinHeight,
+        overflow: 'hidden',
+        flexDirection: 'row',
+        alignItems: 'center',
+      },
+    ].concat(style);
 
     return style;
   }
@@ -80,25 +100,35 @@ export default class ListRow extends Component {
   renderSeparator(type) {
     let separatorStyle = {
       backgroundColor: Theme.rowSeparatorColor,
-      height: Theme.rowSeparatorLineWidth,
+      height: +Theme.rowSeparatorLineWidth,
     };
     let indentViewStyle = {
       backgroundColor: 'rgba(0,0,0,0)',
       paddingLeft: Theme.rowPaddingLeft,
-    }
+    };
     switch (type) {
-      case 'full': return <View style={separatorStyle} />;
-      case 'indent': return <View style={indentViewStyle}><View style={separatorStyle} /></View>;
-      case 'none': return  null;
-      default: return React.isValidElement(type) ? type : null;
+      case 'full':
+        return <View style={separatorStyle} />;
+      case 'indent':
+        return (
+          <View style={indentViewStyle}>
+            <View style={separatorStyle} />
+          </View>
+        );
+      case 'none':
+        return null;
+      default:
+        return React.isValidElement(type) ? type : null;
     }
   }
 
   renderSwipeActionView() {
-    let {swipeActions} = this.props;
-    if (!(swipeActions instanceof Array) || swipeActions.length == 0) return null;
+    let { swipeActions } = this.props;
+    if (!(swipeActions instanceof Array) || swipeActions.length === 0) {
+      return null;
+    }
 
-    let {swipeSts} = this.state;
+    let { swipeSts } = this.state;
     let swipeActionViewStyle = {
       position: 'absolute',
       top: 0,
@@ -108,37 +138,51 @@ export default class ListRow extends Component {
       flexDirection: 'row',
       alignItems: 'stretch',
       justifyContent: 'flex-end',
-    }
+    };
     return (
       <View
         style={swipeActionViewStyle}
-        onLayout={e => this.setState({swipeWidth: e.nativeEvent.layout.width})}
-      >
-        {swipeActions.map((item, index) => React.cloneElement(item, {
-          key: item.key ? item.key : 'action' + index,
-          onPress: () => {
-            this.refs.containerView && this.refs.containerView.timingClose();
-            item.props.onPress && item.props.onPress();
-          }
-        }))}
+        onLayout={e =>
+          this.setState({ swipeWidth: e.nativeEvent.layout.width })
+        }>
+        {swipeActions.map((item, index) =>
+          React.cloneElement(item, {
+            key: item.key ? item.key : 'action' + index,
+            onPress: () => {
+              this.containerView && this.containerView.timingClose();
+              item.props.onPress && item.props.onPress();
+            },
+          }),
+        )}
       </View>
     );
   }
 
   renderIcon() {
-    let {icon} = this.props;
-    if (icon === null || icon === undefined || React.isValidElement(icon)) return icon;
+    let { icon } = this.props;
+    if (icon === null || icon === undefined || React.isValidElement(icon)) {
+      return icon;
+    }
     return (
-      <View style={{paddingRight: Theme.rowIconPaddingRight}}>
-        <Image style={{width: Theme.rowIconWidth, height: Theme.rowIconHeight}} source={icon} />
+      <View style={{ paddingRight: Theme.rowIconPaddingRight }}>
+        <Image
+          style={{ width: Theme.rowIconWidth, height: Theme.rowIconHeight }}
+          source={icon}
+        />
       </View>
     );
   }
 
   renderAccessory(accessory = null) {
-    if (!accessory) accessory = this.props.accessory;
-    if (React.isValidElement(accessory)) return accessory;
-    if (accessory === 'none' || (accessory === 'auto' && !this.props.onPress)) return null;
+    if (!accessory) {
+      accessory = this.props.accessory;
+    }
+    if (React.isValidElement(accessory)) {
+      return accessory;
+    }
+    if (accessory === 'none' || (accessory === 'auto' && !this.props.onPress)) {
+      return null;
+    }
 
     let imageSource, tintColor;
     switch (accessory) {
@@ -154,7 +198,8 @@ export default class ListRow extends Component {
         imageSource = require('../../icons/indicator.png');
         tintColor = Theme.rowAccessoryIndicatorColor;
         break;
-      default: imageSource = accessory;
+      default:
+        imageSource = accessory;
     }
     let imageStyle = {
       width: Theme.rowAccessoryWidth,
@@ -162,43 +207,74 @@ export default class ListRow extends Component {
       tintColor,
     };
     return (
-      <View style={{paddingLeft: Theme.rowAccessoryPaddingLeft}}>
+      <View style={{ paddingLeft: Theme.rowAccessoryPaddingLeft }}>
         <Image style={imageStyle} source={imageSource} />
       </View>
     );
   }
 
   renderTitle() {
-    let {title, detail, titleStyle, titlePlace} = this.props;
-    if (titlePlace === 'none') return null;
+    let { title, detail, titleStyle, titlePlace } = this.props;
+    if (titlePlace === 'none') {
+      return null;
+    }
     if (typeof title === 'string' || typeof title === 'number') {
-      let textStyle = (!detail && titlePlace === 'left') ? {flexGrow: 1, flexShrink: 1} : null;
-      return <Label style={[textStyle, titleStyle]} type='title' text={title} />;
+      let textStyle =
+        !detail && titlePlace === 'left'
+          ? { flexGrow: 1, flexShrink: 1 }
+          : null;
+      return (
+        <Label style={[textStyle, titleStyle]} type="title" text={title} />
+      );
     }
     return title;
   }
 
   renderDetail() {
-    let {title, detail, detailStyle, detailMultiLine, titlePlace} = this.props;
+    let {
+      title,
+      detail,
+      detailStyle,
+      detailMultiLine,
+      titlePlace,
+    } = this.props;
     if (typeof detail === 'string' || typeof detail === 'number') {
-      let textStyle = titlePlace === 'top' ? {lineHeight: Theme.rowDetailLineHeight, color: Theme.labelTextColor} : {flexGrow: 1, flexShrink: 1, textAlign: 'right'};
+      let textStyle =
+        titlePlace === 'top'
+          ? {
+              lineHeight: Theme.rowDetailLineHeight,
+              color: Theme.labelTextColor,
+            }
+          : { flexGrow: 1, flexShrink: 1, textAlign: 'right' };
       if (title) {
-        if (titlePlace === 'left') textStyle.paddingLeft = Theme.rowPaddingTitleDetail;
-        else textStyle.paddingTop = Theme.rowPaddingTitleDetail;
+        if (titlePlace === 'left') {
+          textStyle.paddingLeft = Theme.rowPaddingTitleDetail;
+        } else {
+          textStyle.paddingTop = Theme.rowPaddingTitleDetail;
+        }
       }
       if (!detailMultiLine && detailMultiLine !== false) {
         detailMultiLine = titlePlace === 'top';
       }
-      return <Label style={[textStyle, detailStyle]} type='detail' text={detail} numberOfLines={detailMultiLine ? 0 : 1} />;
+      return (
+        <Label
+          style={[textStyle, detailStyle]}
+          type="detail"
+          text={detail}
+          numberOfLines={detailMultiLine ? 0 : 1}
+        />
+      );
     }
     return detail;
   }
 
   renderContent() {
-    let {titlePlace, children} = this.props;
+    let { titlePlace, children } = this.props;
     let title = this.renderTitle();
     let detail = this.renderDetail();
-    if (!title && !detail) return children;
+    if (!title && !detail) {
+      return children;
+    }
 
     let contentStyle = {
       flex: 1,
@@ -216,7 +292,25 @@ export default class ListRow extends Component {
   }
 
   render() {
-    let {style, children, title, detail, titleStyle, detailStyle, detailMultiLine, icon, accessory, topSeparator, bottomSeparator, titlePlace, swipeActions, activeOpacity, onLayout, onPress, ...others} = this.props;
+    let {
+      style,
+      children,
+      title,
+      detail,
+      titleStyle,
+      detailStyle,
+      detailMultiLine,
+      icon,
+      accessory,
+      topSeparator,
+      bottomSeparator,
+      titlePlace,
+      swipeActions,
+      activeOpacity,
+      onLayout,
+      onPress,
+      ...others
+    } = this.props;
     return (
       <View onLayout={onLayout}>
         {this.renderSeparator(topSeparator)}
@@ -224,13 +318,18 @@ export default class ListRow extends Component {
         <SwipeTouchableOpacity
           {...others}
           style={this.buildStyle()}
-          activeOpacity={(!activeOpacity && activeOpacity !== 0) ? (onPress ? 0.2 : 1) : activeOpacity}
-          swipeable={swipeActions instanceof Array && swipeActions.length > 0}
+          activeOpacity={
+            !activeOpacity && activeOpacity !== 0
+              ? onPress
+                ? 0.2
+                : 1
+              : activeOpacity
+          }
+          swipeAble={swipeActions instanceof Array && swipeActions.length > 0}
           swipeWidth={this.state.swipeWidth}
           onPress={onPress}
-          onSwipeStsChange={swipeSts => this.setState({swipeSts})}
-          ref='containerView'
-        >
+          onSwipeStsChange={swipeSts => this.setState({ swipeSts })}
+          ref={view => (this.containerView = view)}>
           {this.renderIcon()}
           {this.renderContent()}
           {this.renderAccessory()}
@@ -239,5 +338,4 @@ export default class ListRow extends Component {
       </View>
     );
   }
-
 }

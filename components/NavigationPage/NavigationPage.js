@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Dimensions } from 'react-native';
 import PropTypes from 'prop-types';
+import { View, Dimensions } from 'react-native';
 import Theme from '../../themes/Theme';
 import BasePage from '../BasePage/BasePage';
 import NavigationBar from '../NavigationBar/NavigationBar';
@@ -48,10 +48,10 @@ export default class NavigationPage extends BasePage {
       return null;
     }
     return (
-        <NavigationBar.BackButton
-            title={Theme.backButtonTitle}
-            onPress={() => this.navigation.goBack()}
-        />
+      <NavigationBar.BackButton
+        title={Theme.backButtonTitle}
+        onPress={() => this.navigation.goBack()}
+      />
     );
   }
 
@@ -68,10 +68,10 @@ export default class NavigationPage extends BasePage {
     } = this.props.navigationBarOptions;
     return (
       <NavigationBar
-          title={this.renderNavigationTitle()}
-          leftView={this.renderNavigationLeftView()}
-          rightView={this.renderNavigationRightView()}
-          {...others}
+        title={this.renderNavigationTitle()}
+        leftView={this.renderNavigationLeftView()}
+        rightView={this.renderNavigationRightView()}
+        {...others}
       />
     );
   }
@@ -106,15 +106,15 @@ export default class NavigationPage extends BasePage {
 
     return (
       <View
-          style={this.buildStyle()}
-          onLayout={e => this.onLayout(e)}
-          {...others}>
+        style={this.buildStyle()}
+        onLayout={e => this.onLayout(e)}
+        {...others}>
         <View style={{ flex: 1 }}>
           <View style={pageContainerStyle}>{this.renderPage()}</View>
           {this.renderNavigationBar()}
         </View>
         {autoKeyboardInsets ? (
-            <KeyboardSpace topInsets={keyboardTopInsets} />
+          <KeyboardSpace topInsets={keyboardTopInsets} />
         ) : null}
       </View>
     );

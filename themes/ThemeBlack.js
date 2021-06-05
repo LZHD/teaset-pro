@@ -1,8 +1,4 @@
-// ThemeBlack.js
-
-'use strict';
-
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 //primary color
 const primaryColor = '#f46231';
@@ -430,4 +426,3 @@ export default {
   //NavigationPage
   backButtonTitle: 'Back',
 };
-
