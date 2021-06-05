@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "release:next": "npm publish --access public --tag next",
-    "release": "npm publish --access public"
+    "release": "npm publish --access public",
+    "lint": "eslint ./components"
   },
   "repository": {
     "type": "git",

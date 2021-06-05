@@ -1,15 +1,8 @@
-// PullPicker.js
-
-'use strict';
-
-import React, {Component} from "react";
-import {View} from 'react-native';
-
+import React from 'react';
 import Overlay from '../Overlay/Overlay';
 import PullPickerView from './PullPickerView';
 
 export default class PullPicker extends Overlay {
-
   static PullPickerView = PullPickerView;
 
   // items: array of string
@@ -21,9 +14,7 @@ export default class PullPicker extends Overlay {
         selectedIndex={selectedIndex}
         onSelected={onSelected}
         {...options}
-        />
+      />,
     );
   }
-
 }
-

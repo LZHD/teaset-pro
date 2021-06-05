@@ -1,10 +1,4 @@
-// ModalIndicator.js
-
-'use strict';
-
-import React, {Component} from "react";
-import {View} from 'react-native';
-
+import React from 'react';
 import Overlay from '../Overlay/Overlay';
 import ModalIndicatorView from './ModalIndicatorView';
 
@@ -12,7 +6,6 @@ let miKey = null;
 let miOverlay = null;
 
 export default class ModalIndicator extends Overlay {
-
   static IndicatorView = ModalIndicatorView;
 
   static show(text) {
@@ -21,7 +14,7 @@ export default class ModalIndicator extends Overlay {
       return;
     }
     miKey = super.show(
-      <this.IndicatorView text={text} ref={v => miOverlay = v} />
+      <this.IndicatorView text={text} ref={v => (miOverlay = v)} />,
     );
   }
 
@@ -32,5 +25,4 @@ export default class ModalIndicator extends Overlay {
       miOverlay = null;
     }
   }
-
 }

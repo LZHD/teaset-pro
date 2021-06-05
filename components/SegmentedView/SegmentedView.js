@@ -1,19 +1,12 @@
-// SegmentedView.js
-
-'use strict';
-
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {View, ViewPropTypes} from 'react-native';
-
-import Theme from '../../themes/Theme';
+import { View, ViewPropTypes } from 'react-native';
 import SegmentedSheet from './SegmentedSheet';
 import SegmentedBar from '../SegmentedBar/SegmentedBar';
 import Projector from '../Projector/Projector';
 import Carousel from '../Carousel/Carousel';
 
 export default class SegmentedView extends Component {
-
   static propTypes = {
     ...ViewPropTypes,
     type: PropTypes.oneOf(['projector', 'carousel']),
@@ -46,6 +39,7 @@ export default class SegmentedView extends Component {
       activeIndex: this.props.activeIndex ? this.props.activeIndex : 0,
     };
     this.segmentedBar = null;
+    this.carousel = null;
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -55,39 +49,47 @@ export default class SegmentedView extends Component {
     }
   }
 
-
   get sheets() {
-    let {children} = this.props;
+    let { children } = this.props;
     if (!(children instanceof Array)) {
-      if (children) children = [children];
-      else children = [];
+      if (children) {
+        children = [children];
+      } else {
+        children = [];
+      }
     }
     children = children.filter(item => item); //remove empty item
     return children;
   }
 
   buildStyle() {
-    let {style} = this.props;
-    style = [{
-      flexDirection: 'column',
-      alignItems: 'stretch',
-    }].concat(style);
+    let { style } = this.props;
+    style = [
+      {
+        flexDirection: 'column',
+        alignItems: 'stretch',
+      },
+    ].concat(style);
     return style;
   }
 
   onSegmentedBarChange(index) {
-    if (index === this.state.activeIndex) return;
-    this.setState({activeIndex: index}, () => {
-      if (this.refs.carousel) {
-        this.refs.carousel.scrollToPage(index, false);
+    if (index === this.state.activeIndex) {
+      return;
+    }
+    this.setState({ activeIndex: index }, () => {
+      if (this.carousel) {
+        this.carousel.scrollToPage(index, false);
       }
       this.props.onChange && this.props.onChange(index);
     });
   }
 
   onCarouselChange(index) {
-    if (index === this.state.activeIndex) return;
-    this.setState({activeIndex: index}, () => {
+    if (index === this.state.activeIndex) {
+      return;
+    }
+    this.setState({ activeIndex: index }, () => {
       if (this.segmentedBar) {
         this.segmentedBar.activeIndex = index;
       }
@@ -96,7 +98,18 @@ export default class SegmentedView extends Component {
   }
 
   renderBar() {
-    let {barPosition, barStyle, justifyItem, indicatorType, indicatorPosition, indicatorLineColor, indicatorLineWidth, indicatorPositionPadding, animated, autoScroll, onChange} = this.props;
+    let {
+      barPosition,
+      barStyle,
+      justifyItem,
+      indicatorType,
+      indicatorPosition,
+      indicatorLineColor,
+      indicatorLineWidth,
+      indicatorPositionPadding,
+      animated,
+      autoScroll,
+    } = this.props;
 
     if (!indicatorPosition && barPosition === 'bottom') {
       indicatorPosition = 'top';
@@ -116,8 +129,7 @@ export default class SegmentedView extends Component {
           animated={animated}
           autoScroll={autoScroll}
           activeIndex={this.state.activeIndex}
-          onChange={index => this.onSegmentedBarChange(index)}
-        >
+          onChange={index => this.onSegmentedBarChange(index)}>
           {this.sheets.map((item, index) => (
             <SegmentedBar.Item
               key={index}
@@ -134,7 +146,7 @@ export default class SegmentedView extends Component {
 
   renderProjector() {
     return (
-      <Projector style={{flex: 1}} index={this.state.activeIndex}>
+      <Projector style={{ flex: 1 }} index={this.state.activeIndex}>
         {this.sheets}
       </Projector>
     );
@@ -143,20 +155,36 @@ export default class SegmentedView extends Component {
   renderCarousel() {
     return (
       <Carousel
-        style={{flex: 1}}
+        style={{ flex: 1 }}
         carousel={false}
         startIndex={this.state.activeIndex}
         cycle={false}
-        ref='carousel'
-        onChange={index => this.onCarouselChange(index)}
-      >
+        ref={carousel => (this.carousel = carousel)}
+        onChange={index => this.onCarouselChange(index)}>
         {this.sheets}
       </Carousel>
     );
   }
 
   render() {
-    let {style, children, type, barPosition, barStyle, justifyItem, indicatorType, indicatorPosition, indicatorLineColor, indicatorLineWidth, indicatorPositionPadding, animated, autoScroll, activeIndex, onChange, ...others} = this.props;
+    let {
+      style,
+      children,
+      type,
+      barPosition,
+      barStyle,
+      justifyItem,
+      indicatorType,
+      indicatorPosition,
+      indicatorLineColor,
+      indicatorLineWidth,
+      indicatorPositionPadding,
+      animated,
+      autoScroll,
+      activeIndex,
+      onChange,
+      ...others
+    } = this.props;
     return (
       <View style={this.buildStyle()} {...others}>
         {barPosition === 'top' ? this.renderBar() : null}
@@ -165,6 +193,4 @@ export default class SegmentedView extends Component {
       </View>
     );
   }
-
 }
-

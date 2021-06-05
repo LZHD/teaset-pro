@@ -1,15 +1,8 @@
-// PopoverPicker.js
-
-'use strict';
-
-import React, {Component} from "react";
-import {View} from 'react-native';
-
+import React from 'react';
 import Overlay from '../Overlay/Overlay';
 import PopoverPickerView from './PopoverPickerView';
 
 export default class PopoverPicker extends Overlay {
-
   static PopoverPickerView = PopoverPickerView;
 
   // fromBounds shape: x, y, width, height
@@ -22,9 +15,7 @@ export default class PopoverPicker extends Overlay {
         selectedIndex={selectedIndex}
         onSelected={onSelected}
         {...options}
-        />
+      />,
     );
   }
-
 }
-

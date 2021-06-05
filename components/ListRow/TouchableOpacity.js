@@ -1,16 +1,24 @@
-// TouchableOpacity.js
-
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {
+  Platform,
+  TouchableWithoutFeedback,
+  Animated,
+  ViewPropTypes,
+  Easing,
+  StyleSheet,
+} from 'react-native';
 
-import {Platform, TouchableWithoutFeedback, Animated, ViewPropTypes, Easing, StyleSheet} from 'react-native';
-
-if (Platform.constants.reactNativeVersion.major === 0 && Platform.constants.reactNativeVersion.minor < 62) {
-  console.error('this teaset edition need react native 0.62.0 or above, please use teaset@0.7.1 in earlier version of react native');
+if (
+  Platform.constants.reactNativeVersion.major === 0 &&
+  Platform.constants.reactNativeVersion.minor < 62
+) {
+  console.error(
+    'this teaset edition need react native 0.62.0 or above, please use teaset@0.7.1 in earlier version of react native',
+  );
 }
 
 export default class TouchableOpacity extends Component {
-
   static propTypes = {
     ...TouchableWithoutFeedback.propTypes,
     activeOpacity: PropTypes.number,
@@ -25,13 +33,14 @@ export default class TouchableOpacity extends Component {
     super(props);
     this.state = {
       anim: new Animated.Value(this._getChildStyleOpacityWithDefault()),
-      pressability: null,
+      pressAbility: null,
     };
+    this.animatedView = null;
   }
 
   componentDidMount() {
     import('react-native/Libraries/Pressability/Pressability.js')
-      .then(Pressability => this.initPressability(Pressability.default))
+      .then(pressAbility => this.initPressAbility(pressAbility.default))
       .catch(error => console.error(error));
   }
 
@@ -42,11 +51,11 @@ export default class TouchableOpacity extends Component {
   }
 
   componentWillUnmount() {
-    this.state.pressability && this.state.pressability.reset();
+    this.state.pressAbility && this.state.pressAbility.reset();
   }
 
-  initPressability(Pressability) {
-    let pressability = new Pressability({
+  initPressAbility(PressAbility) {
+    let pressAbility = new PressAbility({
       getHitSlop: () => this.props.hitSlop,
       getLongPressDelayMS: () => {
         if (this.props.delayLongPress != null) {
@@ -88,19 +97,18 @@ export default class TouchableOpacity extends Component {
         !this.props.rejectResponderTermination,
       onStartShouldSetResponder: () => !this.props.disabled,
     });
-    this.setState({pressability});
+    this.setState({ pressAbility });
   }
 
   measureInWindow(callback) {
-    this.refs.animatedView && this.refs.animatedView.measureInWindow(callback);
+    this.animatedView && this.animatedView.measureInWindow(callback);
   }
 
   measure(callback) {
-    this.refs.animatedView && this.refs.animatedView.measure(callback);
+    this.animatedView && this.animatedView.measure(callback);
   }
 
-  touchableHandleResponderMove(event) {
-  }
+  touchableHandleResponderMove(event) {}
 
   touchableHandleActivePressOut(event) {
     this._opacityInactive(250);
@@ -147,7 +155,10 @@ export default class TouchableOpacity extends Component {
   }
 
   render() {
-    const {onBlur, onFocus, ...eventHandlersWithoutBlurAndFocus} = this.state.pressability ? this.state.pressability.getEventHandlers() : {};
+    const { onBlur, onFocus, ...eventHandlersWithoutBlurAndFocus } = this.state
+      .pressAbility
+      ? this.state.pressAbility.getEventHandlers()
+      : {};
     return (
       <Animated.View
         accessible={this.props.accessible !== false}
@@ -162,7 +173,7 @@ export default class TouchableOpacity extends Component {
         accessibilityLiveRegion={this.props.accessibilityLiveRegion}
         accessibilityViewIsModal={this.props.accessibilityViewIsModal}
         accessibilityElementsHidden={this.props.accessibilityElementsHidden}
-        style={[this.props.style, {opacity: this.state.anim}]}
+        style={[this.props.style, { opacity: this.state.anim }]}
         nativeID={this.props.nativeID}
         testID={this.props.testID}
         onLayout={this.props.onLayout}
@@ -176,11 +187,10 @@ export default class TouchableOpacity extends Component {
         focusable={
           this.props.focusable !== false && this.props.onPress !== undefined
         }
-        ref='animatedView'
+        ref={view => (this.animatedView = view)}
         {...eventHandlersWithoutBlurAndFocus}>
         {this.props.children}
       </Animated.View>
     );
   }
-
 }

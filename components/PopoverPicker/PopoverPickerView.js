@@ -1,17 +1,11 @@
-// PopoverPickerView.js
-
-'use strict';
-
-import React, {Component} from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import {View, ScrollView} from 'react-native';
-
+import { ScrollView } from 'react-native';
 import Theme from '../../themes/Theme';
 import Overlay from '../Overlay/Overlay';
 import PopoverPickerItem from './PopoverPickerItem';
 
 export default class PopoverPickerView extends Overlay.PopoverView {
-
   static propTypes = {
     ...Overlay.PopoverView.propTypes,
     items: PropTypes.array.isRequired,
@@ -32,13 +26,13 @@ export default class PopoverPickerView extends Overlay.PopoverView {
   static Item = PopoverPickerItem;
 
   onItemPress(itemIndex) {
-    let {items, onSelected} = this.props;
+    let { items, onSelected } = this.props;
     this.close(false);
     onSelected && onSelected(items[itemIndex], itemIndex);
   }
 
   buildPopoverStyle() {
-    let {shadow, items, selectedIndex, getItemText} = this.props;
+    let { shadow } = this.props;
 
     let pickerStyle = {
       backgroundColor: Theme.poppColor,
@@ -50,32 +44,32 @@ export default class PopoverPickerView extends Overlay.PopoverView {
     if (shadow) {
       Object.assign(pickerStyle, {
         shadowColor: Theme.poppShadowColor,
-        shadowOffset: {width: 1, height: 1},
+        shadowOffset: { width: 1, height: 1 },
         shadowOpacity: 0.5,
         shadowRadius: 2,
       });
     }
 
     this.defaultDirectionInsets = Theme.poppDirectionInsets;
-    let {popoverStyle, arrow} = super.buildPopoverStyle();
+    let { popoverStyle, arrow } = super.buildPopoverStyle();
     popoverStyle = [pickerStyle].concat(popoverStyle);
-    return {popoverStyle, arrow};
+    return { popoverStyle, arrow };
   }
 
   renderContent() {
-    let {items, selectedIndex, getItemText} = this.props;
+    let { items, selectedIndex, getItemText } = this.props;
     return super.renderContent(
       <ScrollView>
-        {items && items.map((item, index) => (
-          <this.constructor.Item
-            key={'item' + index}
-            title={getItemText ? getItemText(item, index) : item}
-            selected={index === selectedIndex}
-            onPress={() => this.onItemPress(index)}
+        {items &&
+          items.map((item, index) => (
+            <this.constructor.Item
+              key={'item' + index}
+              title={getItemText ? getItemText(item, index) : item}
+              selected={index === selectedIndex}
+              onPress={() => this.onItemPress(index)}
             />
-        ))}
-      </ScrollView>
+          ))}
+      </ScrollView>,
     );
   }
-
 }

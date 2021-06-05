@@ -1,15 +1,8 @@
-// Menu.js
-
-'use strict';
-
-import React, {Component} from "react";
-import {View} from 'react-native';
-
+import React from 'react';
 import Overlay from '../Overlay/Overlay';
 import MenuView from './MenuView';
 
 export default class Menu extends Overlay {
-
   static MenuView = MenuView;
 
   // fromBounds shape: x, y, width, height
@@ -19,9 +12,7 @@ export default class Menu extends Overlay {
   //   onPress: PropTypes.func,
   static show(fromBounds, items, options = {}) {
     return super.show(
-      <this.MenuView fromBounds={fromBounds} items={items} {...options} />
+      <this.MenuView fromBounds={fromBounds} items={items} {...options} />,
     );
   }
-
 }
-

@@ -1,8 +1,4 @@
-// ThemeDefault.js
-
-'use strict';
-
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 //primary color
 const primaryColor = '#337ab7';
@@ -430,4 +426,3 @@ export default {
   //NavigationPage
   backButtonTitle: 'Back',
 };
-
