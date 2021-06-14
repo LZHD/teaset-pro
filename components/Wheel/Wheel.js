@@ -326,7 +326,7 @@ export default class Wheel extends Component {
         style={this.buildStyle()}
         onLayout={e => this.onLayout(e)}
         {...this.panResponder.panHandlers}>
-        {items.map(item => this.renderItem(item, index))}
+        {items.map((item, i) => this.renderItem(item, i))}
         {this.renderMask()}
         {this.renderHoleLine()}
         {this.renderHole()}
