@@ -191,6 +191,7 @@ export default class Stepper extends Component {
 
   render() {
     let {
+      style,
       children,
       pointerEvents,
       opacity,
@@ -211,7 +212,7 @@ export default class Stepper extends Component {
       ...others
     } = this.props; //disable View.onChange
 
-    const style = this.buildStyle();
+    style = this.buildStyle();
 
     let separator;
     if (showSeparator) {
