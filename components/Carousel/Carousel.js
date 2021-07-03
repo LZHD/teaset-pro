@@ -241,6 +241,7 @@ export default class Carousel extends Component {
     if (this.state.width === 0 || this.state.height === 0) {
       return;
     }
+    this.removeTimer();
     this.props.horizontal
       ? this.onHorizontalScroll(e)
       : this.onVerticalScroll(e);
