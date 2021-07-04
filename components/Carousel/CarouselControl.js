@@ -15,7 +15,7 @@ export default class CarouselControl extends Component {
     activeDot: PropTypes.element,
     index: PropTypes.number,
     total: PropTypes.number,
-    carousel: PropTypes.element,
+    carousel: PropTypes.oneOfType([PropTypes.element, PropTypes.object]),
   };
 
   static defaultProps = {
