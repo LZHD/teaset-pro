@@ -43,9 +43,11 @@ export default class App extends Component {
     return (
       <NavigationContainer>
         <RouteStack.Navigator
-          headerMode="none"
           screenOptions={{
             cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+            headerShown: false,
+            // 页面闪烁 https://github.com/react-navigation/react-navigation/issues/9883
+            detachPreviousScreen: false,
           }}>
           <RouteStack.Screen name="Home" component={Home} />
           <RouteStack.Screen name="Theme" component={ThemeExample} />
