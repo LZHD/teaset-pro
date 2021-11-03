@@ -28,11 +28,11 @@
     "teaset-pro": "link:../"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/runtime": "^7.15.4",
+    "@babel/core": "^7.16.0",
+    "@babel/runtime": "^7.16.0",
     "@react-native-community/eslint-config": "^3.0.1",
     "@types/react": "^17.0.33",
-    "@types/react-native": "^0.66.1",
+    "@types/react-native": "^0.66.2",
     "babel-jest": "^27.3.1",
     "eslint": "7.32.0",
     "jest": "^27.3.1",
