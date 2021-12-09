@@ -22,9 +22,9 @@
     "@react-navigation/stack": "^6.0.11",
     "react": "17.0.2",
     "react-native": "0.66.3",
-    "react-native-gesture-handler": "^2.0.0",
+    "react-native-gesture-handler": "^2.1.0",
     "react-native-safe-area-context": "^3.3.2",
-    "react-native-screens": "^3.10.0",
+    "react-native-screens": "^3.10.1",
     "teaset-pro": "link:../"
   },
   "devDependencies": {
